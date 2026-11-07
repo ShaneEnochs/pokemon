@@ -129,4 +129,4 @@ h3[tabindex='-1']:focus-visible { outline: none; }
 .pokemon-trainer-notes li + li, .pokemon-observations li + li { margin-block-start: 0.4rem; }
 .pokemon-information h4 { margin-block: 1rem 0.4rem; }
 
-.pokemon-artwork { display: block; inline-size: min(12rem, 100%); block-size: auto; margin: 1rem auto; object-fit: contain; }
+.pokemon-artwork { display: block; inline-size: min(16rem, 100%); block-size: auto; margin: 1rem auto; object-fit: contain; image-rendering: auto; }
