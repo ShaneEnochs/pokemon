@@ -21,8 +21,9 @@ for (const width of [320, 1280]) test('single responsive title and unchanged sta
   await expect(page.getByRole('navigation', { name: 'Game startup' }).getByRole('button')).toHaveText(['New Game']);
   await page.getByRole('button', { name: 'New Game', exact: true }).click();
   await page.getByRole('button', { name: 'Pokédex', exact: true }).click();
-  await expect(page.locator('#pokedex summary')).toHaveText('#0152 Chikorita');
-  await page.locator('#pokedex summary').click();
+  await expect(page.locator('#pokedex summary')).toContainText('#0152');
+  await expect(page.locator('#pokedex summary')).toContainText('Chikorita');
+  await expect(page.locator('#pokedex details')).toHaveAttribute('open', '');
   await expect(page.locator('#pokedex')).toContainText(pokedex[0]!.description);
   await expect(page.locator('#pokedex dd')).toHaveText(['Grass']);
   await expect(page.getByRole('button', { name: 'Party', exact: true })).toHaveCount(0);
@@ -37,6 +38,7 @@ for (const width of [320, 1280]) test('single responsive title and unchanged sta
   expect(await page.evaluate(k => localStorage.getItem(k), key)).toBe(raw);
   await page.getByRole('button', { name: 'Continue Game', exact: true }).click();
   await page.getByRole('button', { name: 'Pokédex', exact: true }).click();
-  await expect(page.locator('#pokedex summary')).toHaveText('#0152 Chikorita');
+  await expect(page.locator('#pokedex summary')).toContainText('#0152');
+  await expect(page.locator('#pokedex summary')).toContainText('Chikorita');
   expect(await page.evaluate(k => localStorage.getItem(k), key)).toBe(raw);
 });

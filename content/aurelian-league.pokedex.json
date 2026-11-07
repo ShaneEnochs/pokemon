@@ -9,6 +9,7 @@
     "description": "Chikorita is a gentle Grass-type Pokémon that enjoys warm sunshine and fresh greenery. The large leaf on its head senses changes in temperature and humidity while releasing a faint, soothing fragrance. Though usually mild-tempered, Chikorita can be surprisingly stubborn when it sets its mind on something.",
     "discoveryEvents": [
       "encountered_chikorita_orchard"
-    ]
+    ],
+    "firstEncounterLocation": "Countryside outside Lezano"
   }
 ]

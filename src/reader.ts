@@ -216,11 +216,6 @@ export function mountReader(root: HTMLElement, entry: ReaderEntry, story: Story,
         panels.buttons[index]!.setAttribute('aria-pressed', String(active));
         if (active) {
           panels.render(name);
-          const back = document.createElement('button');
-          back.type = 'button';
-          back.textContent = 'Return to Story';
-          back.addEventListener('click', () => selectView('Story'));
-          section.append(back);
           section.querySelector<HTMLElement>('h2')!.focus();
         }
       }

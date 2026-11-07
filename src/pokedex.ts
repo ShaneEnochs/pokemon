@@ -12,6 +12,7 @@ export interface PokedexEntry {
   readonly nationalNumber?: number;
   readonly types?: readonly string[];
   readonly category?: string;
+  readonly firstEncounterLocation?: string;
   readonly officialSummary?: string;
   readonly trainerNotes?: readonly string[];
   readonly observations: readonly PokemonObservation[];
@@ -33,10 +34,10 @@ export function parsePokedex(value: unknown): readonly PokedexEntry[] {
       || discoveryEvents.length + acquisitionEvents.length === 0) {
       throw new Error(`Invalid or duplicate Pokédex entry: ${typeof id === 'string' ? id : index + 1}`);
     }
-    const { nationalNumber, types, category, officialSummary, trainerNotes, observations = [] } = raw as Record<string, unknown>;
+    const { nationalNumber, types, category, firstEncounterLocation, officialSummary, trainerNotes, observations = [] } = raw as Record<string, unknown>;
     if (nationalNumber !== undefined && (typeof nationalNumber !== 'number' || !Number.isSafeInteger(nationalNumber) || nationalNumber <= 0)) throw new Error(`Invalid National Pokédex number for "${id}".`);
     if (types !== undefined && (!Array.isArray(types) || types.length < 1 || types.length > 2 || ![...types].every(nonempty) || new Set(types).size !== types.length)) throw new Error(`Invalid Pokémon types for "${id}".`);
-    if ((category !== undefined && !nonempty(category)) || (officialSummary !== undefined && !nonempty(officialSummary))) throw new Error(`Invalid species information for "${id}".`);
+    if ((category !== undefined && !nonempty(category)) || (firstEncounterLocation !== undefined && !nonempty(firstEncounterLocation)) || (officialSummary !== undefined && !nonempty(officialSummary))) throw new Error(`Invalid species information for "${id}".`);
     if (trainerNotes !== undefined && (!Array.isArray(trainerNotes) || trainerNotes.length < 1
       || trainerNotes.length > 5 || !trainerNotes.every(nonempty)
       || new Set(trainerNotes).size !== trainerNotes.length)) {
@@ -56,6 +57,7 @@ export function parsePokedex(value: unknown): readonly PokedexEntry[] {
       ...(nationalNumber === undefined ? {} : { nationalNumber: nationalNumber as number }),
       ...(types === undefined ? {} : { types: Object.freeze([...(types as string[])]) }),
       ...(category === undefined ? {} : { category: category as string }),
+      ...(firstEncounterLocation === undefined ? {} : { firstEncounterLocation: firstEncounterLocation as string }),
       ...(officialSummary === undefined ? {} : { officialSummary: officialSummary as string }),
       ...(trainerNotes === undefined ? {} : { trainerNotes: Object.freeze([...(trainerNotes as string[])]) }),
       observations: Object.freeze(notes),

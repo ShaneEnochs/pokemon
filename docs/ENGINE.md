@@ -929,8 +929,7 @@ The Pokédex respects the optional global dex_installed flag, with legacy fixtur
 without it remaining usable. Only authored lookup records unlock public species.
 Metadata preserves optional National number, types, category, official summary,
 HTTPS source URL and frozen eventId/text observations. Derived entries include
-only journal-recorded notes in journal order. Native details/summary controls start
-collapsed and display this data without changing state or storage.
+only journal-recorded notes in journal order. Native details/summary controls display species number, name, type, status, and a local thumbnail when available. A single discovered species opens by default, while multiple species start collapsed. The Pokédex shows a derived species count; expanded entries present the description and first encounter chapter, with an optional authored firstEncounterLocation. There is no Field Notes section in the Pokédex panel. Journal observations remain supported in the underlying data and in authored in-story scan cards. The redundant Return to Story button is omitted because the sticky Story tab remains available. No state or storage changes occur when opening views.
 
 In-story cards require a scanned_ effect authored in the current passage and its
 committed journal record. They use the shared safe DOM renderer, show only the

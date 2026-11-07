@@ -1,5 +1,5 @@
-import { pokemonInformation } from './pokedex-view';
-import { discoveredPokemon, pokedexInstalled, pokemonLabel } from './pokedex';
+import { pokemonInformation, pokemonThumbnail } from './pokedex-view';
+import { discoveredPokemon, pokedexInstalled } from './pokedex';
 import type { PokedexEntry } from './pokedex';
 import type { Game } from './game';
 import type { GameState, Story } from './types';
@@ -66,8 +66,15 @@ export function createPanels(story: Story, game: Game, pokedex: readonly Pokedex
       return;
     }
     const discovered = discoveredPokemon(pokedex, game.state);
+    const intro = document.createElement('p');
+    intro.className = 'pokedex-intro';
+    intro.textContent = "A field guide to the Pokémon you've encountered throughout Aurelia.";
+    const count = document.createElement('p');
+    count.className = 'pokedex-count';
+    count.textContent = `${discovered.length} species discovered`;
+    section.append(intro, count);
     if (discovered.length === 0) {
-      list(section, [], "No Pokémon recorded yet.");
+      list(section, [], 'No Pokémon recorded yet.');
       return;
     }
     const entries = document.createElement('ul');
@@ -75,8 +82,40 @@ export function createPanels(story: Story, game: Game, pokedex: readonly Pokedex
     for (const entry of discovered) {
       const item = document.createElement('li');
       const details = document.createElement('details');
-      const summary = document.createElement('summary'); summary.textContent = pokemonLabel(entry);
-      details.append(summary, pokemonInformation(entry)); item.append(details); entries.append(item);
+      if (discovered.length === 1) details.open = true;
+      const summary = document.createElement('summary');
+      summary.className = 'pokedex-summary';
+      const thumbnail = pokemonThumbnail(entry);
+      if (thumbnail) summary.append(thumbnail);
+      const identity = document.createElement('span');
+      identity.className = 'pokedex-summary-identity';
+      if (entry.nationalNumber !== undefined) {
+        const number = document.createElement('span');
+        number.className = 'pokedex-number';
+        number.textContent = '#' + String(entry.nationalNumber).padStart(4, '0');
+        identity.append(number);
+      }
+      const name = document.createElement('strong');
+      name.className = 'pokedex-name';
+      name.textContent = entry.name;
+      identity.append(name);
+      const labels = document.createElement('span');
+      labels.className = 'pokedex-summary-labels';
+      if (entry.types?.length) {
+        const type = document.createElement('span');
+        type.className = 'pokedex-type';
+        type.textContent = entry.types.join(' / ');
+        labels.append(type);
+      }
+      const status = document.createElement('span');
+      status.className = 'pokedex-summary-status';
+      status.textContent = entry.status;
+      labels.append(status);
+      identity.append(labels);
+      summary.append(identity);
+      details.append(summary, pokemonInformation(entry, 'pokedex'));
+      item.append(details);
+      entries.append(item);
     }
     section.append(entries);
   });
