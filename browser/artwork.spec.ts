@@ -14,7 +14,8 @@ for (const width of [320, 375, 768, 1280]) test('local Chikorita artwork keeps i
     rendering: getComputedStyle(image).imageRendering, source: image.src,
   }));
   expect(size.width / size.height).toBeCloseTo(size.naturalWidth / size.naturalHeight, 1);
-  expect(size.width).toBeLessThanOrEqual(192);
+  expect(size.width).toBeLessThanOrEqual(256);
+  if (width >= 768) expect(size.width).toBeCloseTo(256, 0);
   expect(size.rendering).toBe('auto');
   expect(new URL(size.source).origin).toBe(new URL(page.url()).origin);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
