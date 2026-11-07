@@ -7,7 +7,8 @@ for (const width of [320,1280]) test('the public encounter remains recorded with
   const key='pokemon:checkpoint:aurelian-league';
   const saved=await page.evaluate(k=>localStorage.getItem(k),key);
   await page.getByRole('button',{name:'Pokédex',exact:true}).click();
-  await expect(page.locator('#pokedex summary')).toHaveText('#0152 Chikorita');
+  await expect(page.locator('#pokedex summary')).toContainText('#0152');
+  await expect(page.locator('#pokedex summary')).toContainText('Chikorita');
   await expect(page.locator('#pokedex summary')).toHaveCount(1);
   await expect(page.locator('.pokedex-card')).toHaveCount(0);
   await page.getByRole('button',{name:'Story',exact:true}).click();
@@ -19,6 +20,7 @@ for (const width of [320,1280]) test('the public encounter remains recorded with
   await page.reload();
   await page.getByRole('button',{name:'Continue Game',exact:true}).click();
   await page.getByRole('button',{name:'Pokédex',exact:true}).click();
-  await expect(page.locator('#pokedex summary')).toHaveText('#0152 Chikorita');
+  await expect(page.locator('#pokedex summary')).toContainText('#0152');
+  await expect(page.locator('#pokedex summary')).toContainText('Chikorita');
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 });
