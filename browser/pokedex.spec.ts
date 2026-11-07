@@ -21,10 +21,17 @@ for (const width of [320,375,768,1280]) test('public views remain inert and read
       for(const hidden of ['Character','Party','Stats','Skills','Journal','People']) await expect(page.getByRole('button',{name:hidden,exact:true})).toHaveCount(0);
     }
     if(name==='Pokédex') {
-      await expect(page.locator('#pokedex summary')).toHaveText('#0152 Chikorita');
-      await page.locator('#pokedex summary').click();
+      await expect(page.locator('#pokedex .pokedex-intro')).toContainText('A field guide to the Pokémon');
+      await expect(page.locator('#pokedex .pokedex-count')).toHaveText('1 species discovered');
+      await expect(page.locator('#pokedex summary')).toContainText('#0152');
+      await expect(page.locator('#pokedex summary')).toContainText('Chikorita');
+      await expect(page.locator('#pokedex summary .pokedex-type')).toHaveText('Grass');
+      await expect(page.locator('#pokedex details')).toHaveAttribute('open', '');
       await expect(page.locator('#pokedex dd')).toHaveText(['Grass']);
       await expect(page.locator('#pokedex .discovery-status')).toHaveText('Encountered · Chapter 1: A Simple Assignment');
+      await expect(page.locator('#pokedex .pokemon-encounter-location')).toHaveText('Countryside outside Lezano');
+      await expect(page.locator('#pokedex .pokemon-about')).toContainText('Chikorita is a gentle Grass-type Pokémon');
+      await expect(page.getByRole('button', { name: 'Return to Story', exact: true })).toHaveCount(0);
     }
     expect(await page.evaluate(k=>localStorage.getItem(k),key)).toBe(original);
   }

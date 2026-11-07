@@ -156,11 +156,12 @@ test('numbered species metadata is preserved, copied and frozen', () => {
   assert.deepEqual(entry.observations,[{eventId:'seen',text:'First scan.'}]);
   assert.ok(Object.isFrozen(entry.types)); assert.ok(Object.isFrozen(entry.trainerNotes));
   assert.ok(Object.isFrozen(entry.observations)); assert.ok(Object.isFrozen(entry.observations[0]));
+  assert.equal(parsePokedex([{ ...definition, firstEncounterLocation: 'Countryside outside Lezano' }])[0]!.firstEncounterLocation, 'Countryside outside Lezano');
 });
 for(const fields of [
   {nationalNumber:0},{nationalNumber:-1},{nationalNumber:67.5},{nationalNumber:'0067'},
   {types:[]},{types:['Water','Water']},{types:['Water',4]},{types:'Water'},
-  {category:''},{officialSummary:' '},{trainerNotes:[]},{trainerNotes:['']},
+  {category:''},{firstEncounterLocation:''},{officialSummary:' '},{trainerNotes:[]},{trainerNotes:['']},
   {trainerNotes:['Repeated','Repeated']},{trainerNotes:[42]},{trainerNotes:'A note'},
   {observations:{}},{observations:[{eventId:'invalid id',text:'Note'}]},
   {observations:[{eventId:'seen',text:''}]},{observations:[{eventId:'seen',text:'One'},{eventId:'seen',text:'Two'}]},

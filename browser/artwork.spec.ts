@@ -5,7 +5,7 @@ for (const width of [320, 375, 768, 1280]) test('local Chikorita artwork keeps i
   await page.goto('/');
   await page.getByRole('button', { name: 'New Game', exact: true }).click();
   await page.getByRole('button', { name: 'Pokédex', exact: true }).click();
-  await page.locator('#pokedex summary').click();
+  await expect(page.locator('#pokedex details')).toHaveAttribute('open', '');
   const image = page.getByRole('img', { name: 'Chikorita artwork', exact: true });
   await expect(image).toBeVisible();
   await expect.poll(() => image.evaluate((image: HTMLImageElement) => image.naturalWidth)).toBeGreaterThan(0);
@@ -26,9 +26,10 @@ test('a failed local image leaves all species information usable', async ({ page
   await page.goto('/');
   await page.getByRole('button', { name: 'New Game', exact: true }).click();
   await page.getByRole('button', { name: 'Pokédex', exact: true }).click();
-  await page.locator('#pokedex summary').click();
+  await expect(page.locator('#pokedex details')).toHaveAttribute('open', '');
   await expect(page.locator('#pokedex img')).toHaveCount(0);
-  await expect(page.locator('#pokedex summary')).toHaveText('#0152 Chikorita');
+  await expect(page.locator('#pokedex summary')).toContainText('#0152');
+  await expect(page.locator('#pokedex summary')).toContainText('Chikorita');
   await expect(page.locator('#pokedex dd')).toHaveText(['Grass']);
   await expect(page.locator('#pokedex')).toContainText('Chikorita is a gentle Grass-type Pokémon');
 });

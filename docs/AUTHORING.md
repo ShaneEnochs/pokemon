@@ -179,7 +179,7 @@ The three primary views are Story, Inventory and Pokédex. Inventory is directly
 metadata without visible buttons. Chapter labels appear only in Story. Views, disclosure
 controls, and information cards are read-only and preserve choices, drafts and
 saved bytes. Entries start collapsed and use native keyboard-accessible details/
-summary controls with at least 44px targets.
+summary controls with at least 44px targets. A sole discovered species opens by default; multiple entries start collapsed. Expanded entries show the recorded chapter and, if authored, an optional firstEncounterLocation. Field Notes are not added to the visible Pokédex.
 
 ### Automatic encounter registration
 

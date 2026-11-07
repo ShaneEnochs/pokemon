@@ -34,7 +34,7 @@ for (const width of [320, 375, 768, 1280]) {
       await expect(field).toHaveValue('Unfinished Éléonore');
       await expect(field).toHaveAttribute('aria-invalid', 'true');
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
-      await section.getByRole('button', { name: 'Return to Story', exact: true }).click();
+      await page.getByRole('button', { name: 'Story', exact: true }).click();
       await expectPassage(page, 'The Public Record');
       await expect(page.getByRole('alert')).toHaveText(message!);
       expect(await node!.evaluate(element => element === document.querySelector('#player-text'))).toBe(true);
