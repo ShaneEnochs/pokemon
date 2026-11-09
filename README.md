@@ -33,8 +33,11 @@ written or linked yet.
 
 The engine's party, inventory, journal, People and Pokédex systems remain available
 for future chapters. Chapter 1 starts with a field collection kit in Inventory;
-it has no starter selection, owned Pokémon, Pokédex scan or trainer-name input. See the [story bible](docs/STORY_BIBLE.md)
-and [working outline](docs/STORY_OUTLINE.md) for the new direction.
+it has no starter selection, owned Pokémon, Pokédex scan or trainer-name input. See the [story bible](docs/STORY_BIBLE.md),
+[character bible](docs/CHARACTERS.md), and
+[working outline](docs/STORY_OUTLINE.md) for the developing narrative. The planned
+new opening begins on April 4, with the inaugural League season set for August;
+the first-day interview chapter has not yet replaced the playable Chikorita chapter.
 
 ## Install, run, and play
 
