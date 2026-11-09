@@ -1,10 +1,10 @@
 # THE AURELIAN LEAGUE
-## Story Bible — Version 2.0
-**Revised: November 5, 2026 | Status: Narrative redesign, established canon and working outline assumptions**
+## Story Bible — Version 2.1
+**Revised: November 9, 2026 | Status: Narrative redesign, established canon and working outline assumptions**
 
 > **Authority and implementation:** This document supersedes the November 4, 2026 version 1.2 story bible. It is the source of truth for new narrative planning. The published game now includes the redesigned Chapter 1, *A Simple Assignment*, ending with the Chikorita's capture. The cargo-ship mystery and all later chapters are not yet playable. Some older planning notes elsewhere in the repository may still concern the superseded contestant prototype.
 >
-> **Labels:** **Established** means agreed story direction; **Open** means an undecided detail or a suggested approach. This document deliberately avoids inventing answers to open questions.
+> **Labels:** **Established** means agreed story direction; **Open** means an undecided detail or a suggested approach. This document deliberately avoids inventing answers to open questions. Detailed cast canon and current personal histories are in [CHARACTERS.md](CHARACTERS.md).
 
 ## 1. Project identity and premise
 
@@ -18,7 +18,9 @@
 
 The protagonist believes they work directly for the League, performing low-level field-welfare duties such as recovering and relocating Pokémon. They do not know that Team Rocket controls the League; discovering the League's criminal activity aboard a ship comes well before learning who is behind it. An apparently ordinary capture-and-delivery assignment leads them aboard a cargo ship carrying imprisoned experimental subjects. They rescue one Pokémon, accidentally become a fugitive with direct knowledge of the trafficking operation, and eventually learn that their companion was once human.
 
-The protagonist's initial goal is to escape and reach safety. The larger story leads toward helping an independent research institute expose the transformations, stop Rocket's operation, and save those victims who can still be restored.
+A revised opening is in development: on **April 4**, the protagonist arrives at the new Lezano field office for a junior warden interview. The currently playable Chapter 1 still starts with the Chikorita assignment, which may move to Chapter 2. These proposed chapter boundaries have not yet been implemented.
+
+The protagonist's initial goal after the cargo-ship discovery is to escape and reach safety. The larger story leads toward helping an independent research institute expose the transformations, stop Rocket's operation, and save those victims who can still be restored.
 
 The story is **not** organized around the protagonist earning eight Laurels, ranking against contestants, or entering the Triumvirate. Gyms, battles, and the League itself may feature in the narrative when appropriate, but no competition schedule governs the player's journey.
 
@@ -58,7 +60,7 @@ The independent research institute is expected to be beyond Rocket's local contr
 
 **Established:**
 
-- The Aurelian League is small and remote, intended for trainers who otherwise have limited access to official competition. Its inaugural competitive season is already approximately halfway underway when the story begins. A season-based structure is credible for this region, though the exact length, scheduling, and gym format are open.
+- The Aurelian League is small and remote, intended for trainers who otherwise have limited access to official competition. Its inaugural competitive season is scheduled to begin in **August**, approximately four months after the **April 4** opening. League facilities are still being built and the islands are already experiencing increased tourism and investment. The exact season length and gym format remain open.
 - The protagonist works directly for the League in a low-level Pokémon welfare/field warden role. They and other ordinary employees may genuinely believe their relocation assignments are legitimate; they are not knowingly Team Rocket personnel.
 - Rocket uses the League's legitimacy, money flows, employees, facilities, and transport relationships for criminal purposes.
 - Money laundering and the theft/trafficking of Pokémon are part of the operation.
@@ -90,7 +92,7 @@ The League is a setting and institutional antagonist, not a progression system f
 
 ## 6. The protagonist
 
-The player character is a **junior League field warden**, with comparatively little status or knowledge of the organization behind their employer. Their duties involve capturing or recovering Pokémon and delivering them for supposedly legitimate conservation and relocation work. The protagonist does **not** know at the beginning that Team Rocket controls the League. Their complicity is unknowing: they have helped carry out harmful assignments without recognizing their purpose. Their specific formal job title may be refined later.
+The player character is a **junior League field warden**, with comparatively little status or knowledge of the organization behind their employer. Their duties involve capturing or recovering Pokémon and delivering them for supposedly legitimate conservation and relocation work. The protagonist does **not** know at the beginning that Team Rocket controls the League. Their complicity is unknowing: a seemingly legitimate Chikorita relocation leads them to deliver a victim into captivity without recognizing the assignment's purpose. The revised opening begins with their job interview, so do not imply a history of previous harmful assignments without a separate decision. Their specific formal job title may be refined later.
 
 The player can establish their name, pronouns, and attitude through the story. Their internal thoughts and spoken dialogue should be written as genuine characterization, with important emotional stances and moral responses left to player choice.
 
@@ -100,9 +102,11 @@ The revelation aboard the ship is the decisive break from the League as the prot
 
 The people operating the trafficking scheme pursue them because they know too much, have taken an experimental subject, and could enable outsiders to prove the operation exists. The pursuers' Team Rocket connection is initially concealed from the protagonist. The protagonist's own involvement may complicate seeking help. We must establish convincing, noncontrived reasons for the particular danger and travel route rather than declaring all authorities corrupt by default.
 
-## 7. Opening sequence: the first capture and the cargo ship
+## 7. Opening sequence: first day, first capture, and the cargo ship
 
-These beats are **established direction**, not final chapter boundaries or finished dialogue.
+**Opening revision underway:** Begin on April 4 at the newly completed Lezano field office. Octavia, the supervisor, meets the protagonist for a junior warden interview; fellow junior warden Julia and senior warden Cassius are dealing with a frightened Sentret. Julia's wife Selene is an incoming Gym Leader. The first-day narrative is being developed in first-person, present tense; exact choices and chapter breaks are still open. Preserve the existing Chikorita assignment, potentially as Chapter 2. See [CHARACTERS.md](CHARACTERS.md) for the established cast.
+
+The following capture-to-escape beats are **established direction**, not final chapter boundaries or finished dialogue.
 
 ### A. Tall grass: a routine assignment with a comic tone
 
@@ -177,11 +181,13 @@ The institute may be fundamentally benevolent while having its own priorities. I
 
 ## 10. Recurring cast
 
-Aim for approximately **five or six** substantial recurring human characters, plus important Pokémon personalities.
+The early Lezano circle now includes **Octavia** (widowed supervisor, native Aurelian, owner of Marcus's Mismagius, knowingly tolerates Pokémon mistreatment for the League's economic benefit and ultimately opposes the protagonist), **Julia** (junior warden and Octavia's protégé, unaware of the conspiracy), and **Selene** (Julia's charismatic, ambitious wife, an incoming Gym Leader partnered with Roserade). Julia's and Cassius's eventual cooperation or opposition depends on relationships, knowledge, and circumstances, not automatic villainy. See [CHARACTERS.md](CHARACTERS.md) for these established histories, personal stakes, and open questions.
 
-**Roles to develop, not assigned names:**
+Keep the central recurring cast manageable; not every early coworker must accompany the protagonist throughout the adventure.
 
-1. **Cassius, senior League field warden:** A man with **five children**, responsible for supervising the protagonist on the opening assignment. The League pays better than other available jobs and supports his family. Cassius has long suspected that some operations are improper, but **has deliberately avoided looking too deeply** because he cannot afford to lose his position. When the protagonist disappears, he **seeks them out because he fears being blamed and fired**. He does not initially know that Rocket secretly controls the League or about the human-transformation experiments. His moral failure is willful ignorance, not cruelty. He is fundamentally a decent, personally trustworthy man whose assistance can be limited, awkward, and occasionally comically ineffective. **He may ultimately help the protagonist get back into a guarded League or Rocket facility and help bring down the operation**, a redemption opportunity rather than an automatic predetermined outcome. The precise conditions for his help remain open.
+**Further roles and functions to develop:**
+
+1. **Cassius, senior League field warden:** A man with **five children**, responsible for supervising the protagonist on the opening assignment. The League pays better than other available jobs and supports his family. Cassius has long suspected that some operations are improper, but **has deliberately avoided looking too deeply** because he cannot afford to lose his position. When the protagonist disappears, he **seeks them out because he fears being blamed and fired**. He does not initially know that Rocket secretly controls the League or about the human-transformation experiments. His moral failure is willful ignorance, not cruelty. He is fundamentally a decent, personally trustworthy man whose field skills are genuine, especially calming frightened or aggressive Pokémon, although supposedly easy captures can turn comic. His wife **Lucille** is ill and out of work; paying medical bills makes his job especially important. He owns no trainer Pokémon, and he would intervene if certain that Pokémon were being abused. **He may ultimately help the protagonist get back into a guarded League or Rocket facility and help bring down the operation**, a redemption opportunity rather than an automatic predetermined outcome. The precise conditions for his help remain open.
 2. **The research contact:** A representative of the independent group with a personal or professional reason to pursue the disappearances.
 3. **An institute researcher:** A source of credible findings, difficult decisions, and revelations about the transformed Pokémon.
 4. **An older farmer, not yet named:** The protagonist hides in his barn after fleeing the harbor. The farmer is **rough around the edges and initially antagonistic**, understandably angry at finding a stranger trespassing on his property. A conversation about hardship gives the protagonist room to be candid, guarded, or evasive. Once he sees someone genuinely in trouble, his kinder side emerges. He may offer honest work in exchange for food and a place to sleep and become a lasting ally. His manner remains blunt even when he cares.
@@ -194,7 +200,7 @@ These are **story functions**, not a demand to introduce six separate characters
 
 The high-level progression is established, but exact acts, chapter count, locations, and scenes are for a separate interactive-fiction outline.
 
-**Opening / rupture:** The comedic capture, delivery, disturbing discovery, choice of partner, and forced escape.
+**Opening / rupture:** The proposed April 4 first-day introduction in Lezano, the comedic Chikorita capture, delivery, disturbing discovery, choice of partner, and forced escape.
 
 **Flight and new attachments:** The protagonist hides in a barn and is found by a farmer. Dialogue about hardship lets the player decide how much of their past to reveal. A few **odd jobs** provide meals, beds, basic supplies, new Pokémon encounters, and friendships without a numerical money or wage system. The barn owner first reacts angrily to trespassing before deciding whether and how to help. The protagonist learns to travel with their partner while unaware of the League's Rocket connection, and gradually notices pursuit. **In the working Scene 11, the rescued starter** behaves with unexpected affection toward a local widowed mother and her children. Her older brother moved in after her husband died to help care for the family; he disappeared after going to look for their Herdier. **Herdier returned home alone** and is now present. Despite usually disliking other Pokémon, it becomes unusually delighted and affectionate toward the rescued starter. The woman says she has never seen a Pokémon of the rescued species before. The protagonist does not yet know that **the starter is that missing brother**, abducted by Rocket operatives. When it is time to move on from the Scene 11 meeting, the starter hesitates to leave the person and place and eventually follows willingly after reassurance. **Cassius** also tracks the protagonist down, worried that the junior's disappearance on their assignment will cost him the League's unusually well-paid job and threaten his ability to provide for **five children**. They have suspected something improper but avoided finding out more. Their encounter should create uncertainty without portraying the warden as secretly treacherous.
 
@@ -256,4 +262,4 @@ Keep this bible about **facts and rules of the story world**. Maintain a separat
 
 Outline the critical path from beginning to end first. Then add meaningful alternative approaches, relationship consequences, companion-specific details, and optional scenes. Draft prose only after the main structural logic and mystery reveal sequence work.
 
-**Next approved step:** Build a short interactive-fiction outline with major turning points, then develop each part collaboratively. No existing public chapter, engine code, save data, character metadata, or source manifest has been rewritten as part of the story-bible replacement.
+**Next planning step:** Refine the first-day introduction and chapter boundaries collaboratively before changing the playable story. The current published Chikorita chapter, engine code, save data, character metadata, and source manifest remain unchanged by these documentation updates.
