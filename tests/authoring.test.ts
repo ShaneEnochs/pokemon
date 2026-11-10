@@ -5,7 +5,7 @@ const json = (path: string) => JSON.parse(readFileSync(path, 'utf8'));
 test('VS Code uses the custom language, discoverable command snippets, and process task arguments', () => {
   assert.equal(json('.vscode/settings.json')['files.associations']['*.story'], 'pokemon-story');
   const snippets = json('.vscode/pokemon.code-snippets');
-  assert.equal(Object.keys(snippets).length, 39);
+  assert.equal(Object.keys(snippets).length, 40);
   for (const [name, value] of Object.entries(snippets)) {
     const snippet = value as { prefix: string; scope: string; body: string[] };
     assert.equal(snippet.prefix, 'pkmn-' + name);

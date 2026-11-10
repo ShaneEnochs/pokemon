@@ -2,8 +2,8 @@ import type { GameState, Passage, ResumeContext, Variables } from './types';
 import { evaluateCondition } from './condition';
 export function visiblePages(passage: Passage, state: GameState, temps: Variables): number[] {
   const merged = { ...state, variables: { ...state.variables, ...temps } };
-  const pages = [...new Set(passage.paragraphs.filter(p => !p.condition || evaluateCondition(p.condition, merged)).map(p => p.page ?? 0))];
-  return pages.length ? pages : [0];
+  const pages = [...new Set([...passage.paragraphs, ...(passage.pokedexMarkers ?? [])].filter(p => !p.condition || evaluateCondition(p.condition, merged)).map(p => p.page ?? 0))];
+  return pages.length ? pages.sort((a, b) => a - b) : [0];
 }
 export function validateContext(value: unknown, passage: Passage, state: GameState): ResumeContext {
   if (!value || typeof value !== 'object' || Array.isArray(value) || Object.keys(value).sort().join() !== 'page,temps') throw Error('Invalid resume context fields.');

@@ -24,7 +24,7 @@ export class Game {
     this.currentState = next;
     this.currentCheckpoint = snapshot;
     if (options && Object.hasOwn(options, 'committedState')) {
-      if (options.context === undefined && (this.passage.temps || this.passage.paragraphs.some(p => p.page))) throw Error('Saved progress lacks passage context.');
+      if (options.context === undefined && (this.passage.temps || [...this.passage.paragraphs, ...(this.passage.pokedexMarkers ?? [])].some(p => p.page))) throw Error('Saved progress lacks passage context.');
       if (options.context !== undefined) {
         const context = validateContext(options.context, this.passage, this.state); this.temps = context.temps; this.page = context.page;
       }
@@ -58,7 +58,7 @@ export class Game {
 
   get variables(): Variables { return Object.freeze({ ...this.state.variables, ...this.temps }); }
   get resumeContext(): ResumeContext | undefined {
-    return this.passage.temps || this.passage.paragraphs.some(p => p.page) ? Object.freeze({ temps: this.temps, page: this.page }) : undefined;
+    return this.passage.temps || [...this.passage.paragraphs, ...(this.passage.pokedexMarkers ?? [])].some(p => p.page) ? Object.freeze({ temps: this.temps, page: this.page }) : undefined;
   }
   get canAdvancePage(): boolean { return visiblePages(this.passage, this.state, this.temps).at(-1) !== this.page; }
   advancePage(): void {

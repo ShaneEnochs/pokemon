@@ -174,3 +174,9 @@ open buffers where available and reporting the originating file and line.
 For a playable local preview use Preview public chapter files at /author.html;
 it assembles the same sources/metadata with temporary memory progress. See
 docs/AUTHORING.md for opt-in Pokédex metadata, observations and information cards.
+
+`*pokedex species_id` inserts an eligible scan card at a narrative boundary.
+The shared CLI reads sibling `.pokedex.json` metadata for standalone stories.
+A `scanned_` event linked by that metadata must be authored in the same passage;
+the card does not discover species or change state. See docs/AUTHORING.md for
+conditional/page behavior and duplicate/ambiguity diagnostics.

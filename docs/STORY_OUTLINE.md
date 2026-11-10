@@ -1,8 +1,21 @@
 # The Aurelian League: Golden Path Outline
 
+Narrative planning is advisory. The author's latest explicit instructions take
+precedence over earlier notes. Characters, locations, mysteries, relationships,
+chapter plans and even playable details may be revised at the author's direction,
+without special justification. Review continuity implications rather than rejecting
+creative changes. Unwritten scenes and arcs are proposals, not automatic canon.
+This flexibility does not weaken engine, validation, scripting or save safeguards.
+
+**Implemented** describes current playable content, **Working** describes intentions
+and proposals, and **Archived** preserves earlier ideas for possible reuse. These
+labels describe status, not permission to change material. Relaxing these notes
+does not automatically restore an older storyline.
+
+
 **Working outline | Updated November 9, 2026 | Narrative v2.1**
 
-**Status:** This is a scene-level **working plan**, not playable content and not a final script. For established setting and transformation rules, see [STORY_BIBLE.md](STORY_BIBLE.md); for the working cast canon, see [CHARACTERS.md](CHARACTERS.md). Scenes may be split, combined, rearranged, or revised during authoring. These are the principal beats in a successful playthrough, not the only choices or outcomes.
+**Status:** This is a scene-level **working plan**, not playable content and not a final script. For working setting and transformation ideas, see [STORY_BIBLE.md](STORY_BIBLE.md); for the working cast notes, see [CHARACTERS.md](CHARACTERS.md). Scenes may be split, combined, rearranged, or revised during authoring. These are the principal beats in a successful playthrough, not the only choices or outcomes.
 
 **Core assumptions:** The protagonist is a junior **Aurelian League field warden** and does not know that Team Rocket controls the League. The protagonist's revised introduction is set on **April 4**, four months before the first League season begins in **August**. The player rescues **Charmander, Chikorita, or Piplup** from a cargo ship; **whichever species is chosen has the same former human identity**. The protagonist begins their new life without a tracked money balance. Food, lodging, basic supplies, and Poké Balls come through odd jobs, hospitality, and authored events rather than a credit economy.
 
@@ -69,11 +82,11 @@ The mystery is more reliable if the truth and method of proving it are planned f
 | Backward step | Author's working answer | Earlier setup or payoff |
 | --- | --- | --- |
 | **1. End-state truth** | Rocket's rare Ditto uses **Polymorph** to transform abducted humans into **specific ordered Pokémon species with essentially perfect stats**, sold on the black market. Human memories fade and eventually the transformation becomes irreversible | Act IV reveal and Act V intervention |
-| **2. What constitutes proof?** | An **early-stage victim's mixed human/Pokémon DNA** demonstrates the transformation process. The **unusual birthmark retained by permanently transformed Darrow** points to his identity but is not conclusive proof alone; corroboration may come from family knowledge and records. Evidence must connect League staff, abductions, species orders, and shipments | Late Act IV examination and later corroboration; records and evidence recovered in Act V |
+| **2. What constitutes proof?** | An **early-stage victim's mixed human/Pokémon DNA** demonstrates the transformation process. The **unusual birthmark retained by permanently transformed Darrow** points to his identity but is not conclusive proof alone; corroboration may come from family knowledge and records. Proposed evidence would connect League staff, abductions, species orders, and shipments | Late Act IV examination and later corroboration; records and evidence recovered in Act V |
 | **3. Personal confirmation** | The starter, whatever its chosen species, was **Darrow, 32**, a stubborn but kindhearted odd-job worker helping his widowed sister raise her children. He was captured near a restricted League area while searching for Herdier, then transformed via Polymorph. **Only Chikorita-Darrow escapes by using Vine Whip on a lock** and is recaptured in the opening; **Charmander/Piplup-Darrow remains captive until the ship transfer** | Scene 11: the woman and children inspire affection, and the normally Pokémon-averse Herdier is delighted to see the starter; the starter is reluctant to leave. Independently identified in scenes 20–21 |
 | **4. Early anomalies** | Cages and misleading shipment procedures contradict routine relocation; Cassius has avoided asking questions; the companion's behavior is a little unusual | Scenes 1–5 and 9–12 |
 | **5. Misleading but fair interpretations** | At first it seems like illegal Pokémon trafficking, poor husbandry, or unusual breeding rather than human transformation | Protagonist and player should be able to interpret events plausibly before the reveal |
-| **6. Consequence and resolution** | The evidence must allow an actual intervention, not just an exposition scene | Information, relationships, and access determine the shape of the return and rescue |
+| **6. Consequence and resolution** | The evidence could allow an actual intervention, not just an exposition scene | Information, relationships, and access determine the shape of the return and rescue |
 
 **Open questions to settle before drafting revealing scenes:** Darrow's sister's name and family details; the exact shape and placement of Darrow's birthmark; which surviving documents or witnesses corroborate that clue; Rocket's operational timeline and the timing of the next black-market delivery; and which other victims can still be restored. **The opening capture is always Chikorita, but only captures Darrow in the Chikorita-starter route.**
 
@@ -82,7 +95,7 @@ The mystery is more reliable if the truth and method of proving it are planned f
 - Preserve the five-act spine while letting choices alter tone, relationships, chosen starter behavior, optional job scenes, available assistance, and final rescue outcomes.
 - Internal thoughts can reflect a chosen emotional interpretation without rerouting every major event.
 - Scene 11 should point toward the correct answer in hindsight but **not** allow a knowledgeable character to state the secret prematurely.
-- Cassius must not become magically helpful or omniscient. He can risk his livelihood and family stability for a specific, limited act of assistance.
+- Cassius should not become magically helpful or omniscient. He can risk his livelihood and family stability for a specific, limited act of assistance.
 - Do not lock the player out of the main story for missing a minor clue.
 - Keep jobs narrative rather than repetitive resource grinding; **no numerical credits**.
 - No prose chapters, engine changes, sprite assets, or world map beyond the opening geography are authorized by this outline alone.

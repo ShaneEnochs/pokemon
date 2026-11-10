@@ -132,6 +132,7 @@ messenger route and five on the direct route. Neither route can underflow.
 | `*if condition` | Indented conditional narrative/effects or individual choices. |
 | `*elseif condition` | Alternate branch aligned with its if. |
 | `*else` | Final alternate branch; no arguments. |
+| `*pokedex species_id` | Display a passage-local committed scan card at this narrative boundary; see Inline Pokédex presentation directive. |
 | `*page_break` | Split narrative into resumable pages; no arguments. |
 | Narrative text | At least one unconditional paragraph per passage. Nonblank consecutive lines join with spaces; blank lines separate paragraphs. |
 | `*show_if name operator literal` | At a paragraph boundary after the title/effects, conditions only the paragraph starting on the immediately following source line. |
@@ -1448,3 +1449,13 @@ to Arrival then advances the public story to revision 9, because saved journal
 entries require their original chapters to match authored chapter labels.
 Existing revision-8 saves are rejected, not migrated. GameState, save formats,
 story ID, storage key, and checkpoint semantics are unchanged.
+
+## Inline Pokédex presentation directive
+
+`*pokedex species_id` anchors a read-only lookup card at a narrative boundary.
+It supports ordinary narrative block guards, `*show_if`, and page-local placement.
+It requires matching metadata and a passage-local recorded `scanned_` event;
+it does not perform discovery. Repeated species markers and ambiguous shared scan
+mappings are rejected. A marked species is excluded from legacy appended cards
+throughout that passage. Unmarked species retain legacy behavior. See
+[AUTHORING.md](AUTHORING.md#inline-scan-cards) for syntax, metadata and diagnostics.

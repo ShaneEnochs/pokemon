@@ -1,6 +1,6 @@
 import { formattedParts } from './format';
 import { interpolate, selectInline } from './interpolate';
-import type { Choice, ComparisonOperator, Condition, ItemDefinition, NarrativeParagraph, Passage, PassageEffect, PokemonDefinition, SkillDefinition, StatDisplay, Story, TextInputAction, EffectGuard, Variables, VariableValue } from './types';
+import type { Choice, ComparisonOperator, Condition, ItemDefinition, NarrativeParagraph, PokedexMarker, Passage, PassageEffect, PokemonDefinition, SkillDefinition, StatDisplay, Story, TextInputAction, EffectGuard, Variables, VariableValue } from './types';
 
 import { syntaxError, id, literal, knownPokemon, knownSkill, knownItem, quantityLiteral, parseCondition } from './expressions';
 /** Parse and validate the entire story before any passage can be entered. */
@@ -17,7 +17,7 @@ export function parseStory(source: string): Story {
   const stats: StatDisplay[] = [];
   const references: { destinationId: string; passageId: string; line: number }[] = [];
   let current: {
-    id: string; chapter: string; line: number; temps: Record<string, VariableValue>; title?: string; hideTitle?: true; checkpoint?: true; paragraphs: NarrativeParagraph[];
+    id: string; chapter: string; line: number; temps: Record<string, VariableValue>; title?: string; hideTitle?: true; checkpoint?: true; paragraphs: NarrativeParagraph[]; pokedexMarkers: PokedexMarker[];
     choices: Choice[]; effects: PassageEffect[]; continueTo?: string; textInput?: TextInputAction; death?: true;
   } | undefined;
   let page = 0;
@@ -77,7 +77,7 @@ export function parseStory(source: string): Story {
       throw syntaxError('*show_if requires a narrative paragraph on the immediately following source line.', showIfLine, current.id);
     }
     flushParagraph();
-    if (page && current.paragraphs.at(-1)?.page !== page) throw syntaxError('A page break requires following narrative.', current.line, current.id);
+    if (page && current.paragraphs.at(-1)?.page !== page && !current.pokedexMarkers.some(marker => (marker.page ?? 0) === page)) throw syntaxError('A page break requires following narrative.', current.line, current.id);
     if (current.title === undefined) {
       throw syntaxError('Passage requires exactly one *title.', current.line, current.id);
     }
@@ -97,6 +97,7 @@ export function parseStory(source: string): Story {
     passages.push(Object.freeze({
       ...(Object.keys(current.temps).length ? { temps: Object.freeze(current.temps) } : {}),
       id: current.id, chapter: current.chapter, title: current.title, ...(current.hideTitle ? { hideTitle: true } : {}), paragraphs: Object.freeze(current.paragraphs),
+      ...(current.pokedexMarkers.length ? { pokedexMarkers: Object.freeze(current.pokedexMarkers) } : {}),
       effects: Object.freeze(current.effects),
       choices: Object.freeze(current.choices),
       ...(current.checkpoint === undefined ? {} : { checkpoint: current.checkpoint }),
@@ -117,7 +118,7 @@ export function parseStory(source: string): Story {
     if (text) {
       if ((blocks.length || /^\s*\*(?:if|elseif|else)\b/.test(raw)) && /^\s*\t/.test(raw)) throw syntaxError('Use spaces, not tabs, for block indentation.', line, current?.id);
       const indent = raw.length - raw.trimStart().length;
-      if (paragraphCondition !== undefined && paragraph.length === 0 && text.startsWith('*')) throw syntaxError('*show_if requires a narrative paragraph on the immediately following source line.', line, current?.id);
+      if (paragraphCondition !== undefined && paragraph.length === 0 && text.startsWith('*') && !/^\*pokedex(?:\s|$)/.test(text)) throw syntaxError('*show_if requires a narrative paragraph on the immediately following source line.', line, current?.id);
       const branch = /^\*(if|elseif|else)(?:\s+(.*))?$/.exec(text);
       if (blocks.at(-1)?.pending && indent <= blocks.at(-1)!.indent) throw syntaxError('Conditional block requires an indented body.', line, current?.id);
       while (blocks.length && (indent < blocks.at(-1)!.indent || (indent === blocks.at(-1)!.indent && !branch?.[1]?.match(/^(elseif|else)$/)))) { flushParagraph(); blocks.pop(); }
@@ -149,7 +150,7 @@ export function parseStory(source: string): Story {
       }
       if (blocks.length) blocks.at(-1)!.pending = false;
     }
-    if (paragraphCondition !== undefined && paragraph.length === 0 && (text === '' || text.startsWith('*'))) {
+    if (paragraphCondition !== undefined && paragraph.length === 0 && (text === '' || (text.startsWith('*') && !/^\*pokedex(?:\s|$)/.test(text)))) {
       throw syntaxError('*show_if requires a narrative paragraph on the immediately following source line.', line, current?.id);
     }
     if (text === '') {
@@ -161,10 +162,20 @@ export function parseStory(source: string): Story {
       const directive = text.split(/\s/, 1)[0]!;
       const argument = text.slice(directive.length).trim();
       if (blocks.length && ['*passage','*chapter','*title','*hide_title','*checkpoint','*temp','*choice','*continue','*input_text','*death'].includes(directive)) throw syntaxError('This directive cannot be conditional.', line, current?.id);
+      if (directive === '*pokedex') {
+        if (!current?.title || action || paragraph.length) throw syntaxError('*pokedex must be at a narrative boundary after the title/effects and before navigation.', line, current?.id);
+        const speciesId = id(argument, 'Pokédex species', line, current.id);
+        if (current.pokedexMarkers.some(marker => marker.speciesId === speciesId)) throw syntaxError('Repeated *pokedex species in passage: ' + speciesId, line, current.id);
+        const condition = conjunction(guard(), explicitShowIf ? paragraphCondition : undefined);
+        current.pokedexMarkers.push(Object.freeze({ speciesId, beforeParagraph: current.paragraphs.length, line,
+          ...(page ? { page } : {}), ...(condition ? { condition } : {}) }));
+        paragraphCondition = undefined; explicitShowIf = false;
+        continue;
+      }
       if (directive === '*hide_title') {
         if (argument !== '') throw syntaxError('*hide_title takes no arguments.', line, current?.id);
         if (!current || current.title === undefined || current.hideTitle || Object.keys(current.temps).length > 0
-          || current.effects.length > 0 || current.paragraphs.length > 0 || paragraph.length > 0 || action !== undefined
+          || current.effects.length > 0 || (current.paragraphs.length + current.pokedexMarkers.length) > 0 || paragraph.length > 0 || action !== undefined
           || current.checkpoint) {
           throw syntaxError('*hide_title must appear once immediately after *title, before effects and prose.', line, current?.id);
         }
@@ -172,7 +183,7 @@ export function parseStory(source: string): Story {
         continue;
       }
       if (directive === '*temp') {
-        if (!current?.title || current.effects.length || current.paragraphs.length || paragraph.length || action) throw syntaxError('*temp must follow title/checkpoint before effects and prose.', line, current?.id);
+        if (!current?.title || current.effects.length || (current.paragraphs.length + current.pokedexMarkers.length) || paragraph.length || action) throw syntaxError('*temp must follow title/checkpoint before effects and prose.', line, current?.id);
         const parts = /^(\S+)\s+(.+)$/.exec(argument);
         if (!parts) throw syntaxError('*temp requires a name and literal.', line, current.id);
         const name = id(parts[1]!, 'Temporary variable', line, current.id);
@@ -180,9 +191,9 @@ export function parseStory(source: string): Story {
         current.temps[name] = literal(parts[2]!, line, current.id); continue;
       }
       if (directive === '*page_break') {
-        if (!current?.title || action || argument || (!paragraph.length && !current.paragraphs.length)) throw syntaxError('Invalid or misplaced *page_break; no arguments are supported.', line, current?.id);
+        if (!current?.title || action || argument || (!paragraph.length && !(current.paragraphs.length + current.pokedexMarkers.length))) throw syntaxError('Invalid or misplaced *page_break; no arguments are supported.', line, current?.id);
         flushParagraph();
-        if ((current.paragraphs.at(-1)?.page ?? 0) !== page) throw syntaxError('Consecutive page breaks are not allowed.', line, current.id);
+        if ((current.paragraphs.at(-1)?.page ?? 0) !== page && !current.pokedexMarkers.some(marker => (marker.page ?? 0) === page)) throw syntaxError('Consecutive page breaks are not allowed.', line, current.id);
         page++; continue;
       }
       if (directive === '*chapter') {
@@ -200,7 +211,7 @@ export function parseStory(source: string): Story {
       if (directive === '*checkpoint') {
         if (argument !== '') throw syntaxError('*checkpoint takes no arguments.', line, current?.id);
         if (current?.checkpoint) throw syntaxError('*checkpoint may appear at most once per passage.', line, current.id);
-        if (!current || current.title === undefined || Object.keys(current.temps).length > 0 || current.effects.length > 0 || current.paragraphs.length > 0 || paragraph.length > 0 || action !== undefined) {
+        if (!current || current.title === undefined || Object.keys(current.temps).length > 0 || current.effects.length > 0 || (current.paragraphs.length + current.pokedexMarkers.length) > 0 || paragraph.length > 0 || action !== undefined) {
           throw syntaxError('*checkpoint must immediately follow *title, before entry effects and narrative.', line, current?.id);
         }
         current.checkpoint = true;
@@ -216,7 +227,7 @@ export function parseStory(source: string): Story {
         continue;
       }
       if (directive === '*add_pokemon' || directive === '*remove_pokemon') {
-        if (!current?.title || current.paragraphs.length || paragraph.length || action) throw syntaxError('Effects must appear after *title and before the first narrative paragraph.', line, current?.id);
+        if (!current?.title || (current.paragraphs.length + current.pokedexMarkers.length) || paragraph.length || action) throw syntaxError('Effects must appear after *title and before the first narrative paragraph.', line, current?.id);
         const parts = /^(\S+)(?:\s+(\S+))?$/.exec(argument);
         if (!parts || (directive === '*remove_pokemon' && parts[2])) throw syntaxError(`${directive} requires a Pokémon ID${directive === '*add_pokemon' ? ' and optional global nickname variable' : ''}.`, line, current.id);
         const pokemonId = knownPokemon(parts[1]!, pokemon, line, current.id);
@@ -226,7 +237,7 @@ export function parseStory(source: string): Story {
         continue;
       }
       if (directive === '*grant_skill' || directive === '*revoke_skill') {
-        if (!current || current.title === undefined || current.paragraphs.length > 0 || paragraph.length > 0 || action !== undefined) {
+        if (!current || current.title === undefined || (current.paragraphs.length + current.pokedexMarkers.length) > 0 || paragraph.length > 0 || action !== undefined) {
           throw syntaxError('Effects must appear after *title and before the first narrative paragraph.', line, current?.id);
         }
         const skillId = knownSkill(argument, skills, line, current.id);
@@ -234,7 +245,7 @@ export function parseStory(source: string): Story {
         continue;
       }
       if (directive === '*add_item' || directive === '*remove_item') {
-        if (!current || current.title === undefined || current.paragraphs.length > 0 || paragraph.length > 0 || action !== undefined) {
+        if (!current || current.title === undefined || (current.paragraphs.length + current.pokedexMarkers.length) > 0 || paragraph.length > 0 || action !== undefined) {
           throw syntaxError('Effects must appear after *title and before the first narrative paragraph.', line, current?.id);
         }
         const parts = /^(\S+)\s+(\S+)$/.exec(argument);
@@ -249,7 +260,7 @@ export function parseStory(source: string): Story {
         if (declaration && (current || passages.length > 0 || pendingChapterLine !== undefined)) {
           throw syntaxError(`${directive} declarations must precede the first passage and all chapter declarations.`, line, current?.id);
         }
-        if (!declaration && (!current || current.title === undefined || current.paragraphs.length > 0 || paragraph.length > 0 || action !== undefined)) {
+        if (!declaration && (!current || current.title === undefined || (current.paragraphs.length + current.pokedexMarkers.length) > 0 || paragraph.length > 0 || action !== undefined)) {
           throw syntaxError('Effects must appear after *title and before the first narrative paragraph.', line, current?.id);
         }
         const parts = /^(\S+)\s+(.+)$/.exec(argument);
@@ -307,7 +318,7 @@ export function parseStory(source: string): Story {
         if (ids.has(passageId)) throw syntaxError(`Duplicate passage ID "${passageId}".`, line, passageId);
         ids.add(passageId);
         page = 0; paragraphPaths = []; blockInfo = [];
-        current = { temps: {}, id: passageId, chapter, line, paragraphs: [], choices: [], effects: [] };
+        current = { temps: {}, id: passageId, chapter, line, paragraphs: [], pokedexMarkers: [], choices: [], effects: [] };
         pendingChapterLine = undefined;
         action = undefined;
         continue;

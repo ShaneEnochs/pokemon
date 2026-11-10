@@ -1,3 +1,4 @@
+import { evaluateCondition } from './condition';
 import type { GameState, Story, Passage } from './types';
 
 export interface PokemonObservation { readonly eventId: string; readonly text: string; }
@@ -75,6 +76,18 @@ export function validatePokedex(story: Story, value: unknown): readonly PokedexE
       if (!events.has(event)) throw new Error(`Pokédex entry "${entry.id}": unknown journal event "${event}".`);
     }
   }
+  for (const passage of story.passages) {
+    const scans = passage.effects.flatMap(effect => effect.kind === 'journal' && effect.id.startsWith('scanned_') ? [effect.id] : []);
+    for (const marker of passage.pokedexMarkers ?? []) {
+      const entry = entries.find(entry => entry.id === marker.speciesId);
+      const fail = (message: string): never => { throw new Error(`Line ${marker.line}, passage "${passage.id}": *pokedex ${marker.speciesId}: ${message}`); };
+      if (!entry) fail('unknown species in Pokédex metadata.');
+      const related = (entry: PokedexEntry) => [...entry.discoveryEvents, ...entry.acquisitionEvents, ...entry.observations.map(note => note.eventId)];
+      const matching = scans.filter(event => related(entry!).includes(event));
+      if (!matching.length) fail('requires a matching scanned_ journal event in this passage.');
+      if (entries.some(other => other.id !== entry!.id && matching.some(event => related(other).includes(event)))) fail('ambiguous scan event maps to multiple species.');
+    }
+  }
   return entries;
 }
 
@@ -109,5 +122,15 @@ export function passageLookups(entries: readonly PokedexEntry[], state: GameStat
     const related = [...entry.discoveryEvents, ...entry.acquisitionEvents, ...entry.observations.map(note => note.eventId)];
     if (!related.some(event => scans.has(event))) return [];
     return [{ ...entry, observations: entry.observations.filter(note => scans.has(note.eventId)) }];
+  });
+}
+
+/** Merge eligible cards into the current narrative page; marker species reserve their legacy slot. */
+export function inlineLookups(entries: readonly PokedexEntry[], state: GameState, passage: Passage, page: number, variables: GameState['variables']) {
+  const eligible = passageLookups(entries, state, passage);
+  return (passage.pokedexMarkers ?? []).flatMap(marker => {
+    if ((marker.page ?? 0) !== page || (marker.condition && !evaluateCondition(marker.condition, { ...state, variables }))) return [];
+    const entry = eligible.find(entry => entry.id === marker.speciesId);
+    return entry ? [{ marker, entry }] : [];
   });
 }

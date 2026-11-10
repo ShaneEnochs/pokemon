@@ -59,6 +59,15 @@ export interface Choice {
   readonly assignment?: { readonly variable: string; readonly value: VariableValue };
 }
 
+/** Read-only card anchored before a paragraph index, never part of saved state. */
+export interface PokedexMarker {
+  readonly speciesId: string;
+  readonly beforeParagraph: number;
+  readonly page?: number;
+  readonly condition?: Condition;
+  readonly line: number;
+}
+
 export interface NarrativeParagraph {
   readonly page?: number;
   readonly text: string;
@@ -82,6 +91,7 @@ export interface Passage {
   readonly death?: true;
   readonly effects: readonly PassageEffect[];
   readonly paragraphs: readonly NarrativeParagraph[];
+  readonly pokedexMarkers?: readonly PokedexMarker[];
   readonly choices: readonly Choice[];
   readonly continueTo?: string;
   readonly textInput?: TextInputAction;

@@ -290,3 +290,46 @@ collection, timestamp, schema, or save-format change. Revision 12 adds the initi
 Chikorita encounter event, so revision-11 and older saves require a confirmed New
 Game rather than continuing without that event. Saves are never backfilled.
 Revision-8 progress is incompatible because the authored chapter label changed.
+
+## Inline scan cards
+
+Use `*pokedex chikorita` on its own line at a blank-line narrative boundary,
+after the passage title/entry effects and before navigation. It places the existing
+scan card between paragraphs, including on a later `*page_break` page:
+
+```text
+*passage scan_chikorita
+*title Examining Chikorita
+*journal scanned_chikorita_field "You scanned Chikorita."
+
+You raise the device.
+
+*pokedex chikorita
+
+You lower it again.
+```
+
+The species must exist in the selected .pokedex.json metadata and reference a
+`scanned_` journal effect authored in this passage (discoveryEvents,
+acquisitionEvents or observations). Discovery still comes only from committed
+journal events; the marker never discovers, saves, grants a companion or executes
+an effect. `dex_installed`, committed passage-local scan evidence and unlocked
+observations remain authoritative. A guarded scan that did not execute reveals
+nothing. An `*if`/`*elseif`/`*else` narrative block or an immediately preceding
+`*show_if` can condition the marker. Ordinary unconditional prose is still required in a passage; a card can occupy
+a page of its own. Marker conditions use the same committed globals/temps
+as prose. Cards appear only on their authored page and remain correct on Continue.
+
+Different species can have markers in the same passage, in authored order. A
+repeated species marker in one passage is an error, even across exclusive branches
+or pages; use one marker for that species. A scan event mapped to multiple species
+is rejected when an inline marker uses it. These rules avoid ambiguous placement.
+An inline species reserves its card for the entire passage: no legacy copy appears
+at the end, even when that marker's condition is false or its page is not current.
+Species without markers keep their existing end-of-passage scan-card behavior.
+
+Standalone CLI/editor validation reads a sibling `draft.pokedex.json` alongside
+`draft.story`; public chapters use the public metadata. The parser checks syntax,
+placement and duplicate markers; metadata validation checks species, scan links
+and ambiguous mappings. The author preview uses its selected metadata file.
+No persistent state, public revision or save-format change is introduced.

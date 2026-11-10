@@ -1,11 +1,24 @@
 # The Aurelian League: Future Ideas
 
-> **Archive notice (November 5, 2026):** Sections 1–3 below describe the superseded v1.2 seven-partner League-contestant concept. They are preserved as historical planning material, **not approved canon** for the new Rocket-defector story. Follow [docs/STORY_BIBLE.md](docs/STORY_BIBLE.md) version 2.0 for current narrative direction. Section 4 (deferred Pokémon sprite assets) remains an active future-development note.
+Narrative planning is advisory. The author's latest explicit instructions take
+precedence over earlier notes. Characters, locations, mysteries, relationships,
+chapter plans and even playable details may be revised at the author's direction,
+without special justification. Review continuity implications rather than rejecting
+creative changes. Unwritten scenes and arcs are proposals, not automatic canon.
+This flexibility does not weaken engine, validation, scripting or save safeguards.
+
+**Implemented** describes current playable content, **Working** describes intentions
+and proposals, and **Archived** preserves earlier ideas for possible reuse. These
+labels describe status, not permission to change material. Relaxing these notes
+does not automatically restore an older storyline.
 
 
-**Status:** Approved narrative design, not yet implemented  
+> **Archive notice (November 5, 2026):** Sections 1–3 below describe the superseded v1.2 seven-partner League-contestant concept. Their status is **Archived**, retained for possible future reference. Consult [docs/STORY_BIBLE.md](docs/STORY_BIBLE.md) version 2.1 for current narrative direction. Section 4 (deferred Pokémon sprite assets) remains an active future-development note.
+
+
+**Status:** Archived narrative design, not yet implemented
 **Created:** November 4, 2026  
-**Purpose:** Record future story and gameplay ideas for the Pokémon interactive-fiction project. These notes detail the mutual-selection design recorded in [the story bible](docs/STORY_BIBLE.md), version 1.2. The current playable story ends before orientation; no starter-selection encounter is implemented yet.
+**Purpose:** Record future story and gameplay ideas for the Pokémon interactive-fiction project. These notes detail the mutual-selection design recorded in [the story bible](docs/STORY_BIBLE.md), version 1.2. In that archived concept, the opening ended before orientation. The implemented Chapter 1 instead ends with the Chikorita relocation capture.
 
 ## 1. Expanded First-Partner Selection
 

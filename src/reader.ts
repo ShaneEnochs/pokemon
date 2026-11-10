@@ -1,5 +1,5 @@
 import { lookupCard } from './pokedex-view';
-import { validatePokedex, passageLookups } from './pokedex';
+import { validatePokedex, inlineLookups, passageLookups } from './pokedex';
 import type { PokedexEntry } from './pokedex';
 import { renderNarrative } from './format';
 import type { TitlePage } from './title-page';
@@ -231,11 +231,17 @@ export function mountReader(root: HTMLElement, entry: ReaderEntry, story: Story,
       if (passage.hideTitle) heading.classList.add('visually-hidden');
       heading.tabIndex = -1;
 
-      const paragraphs = game.currentParagraphs.map(({ text }) => {
+      const inline = inlineLookups(pokedex, game.state, passage, game.resumeContext?.page ?? 0, game.variables);
+      const paragraphs: HTMLElement[] = [];
+      for (let index = 0; index <= passage.paragraphs.length; index++) {
+        for (const card of inline.filter(card => card.marker.beforeParagraph === index)) paragraphs.push(lookupCard(card.entry));
+        const block = passage.paragraphs[index];
+        if (!block || !game.currentParagraphs.includes(block)) continue;
+        const { text } = block;
         const paragraph = document.createElement('p');
         paragraph.append(renderNarrative(text, game.variables));
-        return paragraph;
-      });
+        paragraphs.push(paragraph);
+      }
 
       const actions = document.createElement('nav');
       actions.className = 'passage-actions';
@@ -332,7 +338,7 @@ export function mountReader(root: HTMLElement, entry: ReaderEntry, story: Story,
       }
 
       chapter.textContent = passage.chapter;
-      storyContent.replaceChildren(heading, ...paragraphs, ...passageLookups(pokedex, game.state, passage).map(lookupCard), actions);
+      storyContent.replaceChildren(heading, ...paragraphs, ...passageLookups(pokedex, game.state, passage).filter(entry => !passage.pokedexMarkers?.some(marker => marker.speciesId === entry.id)).map(lookupCard), actions);
       root.replaceChildren(header, storyContent, ...panels.sections);
       selectView('Story');
       renderNotice();
