@@ -16,7 +16,29 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
 
 jobs:
-  test-and-build:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      full: ${{ steps.changes.outputs.full }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - run: node --test scripts/ci/plan.test.mjs
+      - id: changes
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: node scripts/ci/plan.mjs
+
+  core:
+    needs: plan
+    if: needs.plan.outputs.full == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -28,21 +50,88 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm run check:stories
+      # Includes TypeScript checking and the production Pages asset checks.
+      - run: npm run build:pages
+
+  browser-tests:
+    needs: plan
+    if: needs.plan.outputs.full == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2]
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
       - run: npm run build
       - run: npx playwright install --with-deps chromium
-      - run: npm run test:e2e
-      - run: npm run test:author
-      - run: npm run build:pages
+      # Each shard retains both public and regression projects, with the existing two workers.
+      - run: npm run test:e2e -- --shard=${{ matrix.shard }}/2
       - uses: actions/upload-artifact@v7
         if: failure()
         with:
-          name: browser-test-diagnostics
+          name: browser-test-diagnostics-shard-${{ matrix.shard }}
           path: |
             test-results/
-            test-results-author/
             playwright-report/
           if-no-files-found: ignore
           retention-days: 7
+
+  author-tests:
+    needs: plan
+    if: needs.plan.outputs.full == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:author
+      - uses: actions/upload-artifact@v7
+        if: failure()
+        with:
+          name: browser-test-diagnostics-author
+          path: test-results-author/
+          if-no-files-found: ignore
+          retention-days: 7
+
+  # Preserve the existing required check name. Unexpected skips, cancellations,
+  # classifier errors and any failed shard must fail this gate.
+  test-and-build:
+    needs: [plan, core, browser-tests, author-tests]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Require all relevant checks
+        env:
+          PLAN_RESULT: ${{ needs.plan.result }}
+          FULL: ${{ needs.plan.outputs.full }}
+          CORE_RESULT: ${{ needs.core.result }}
+          BROWSER_RESULT: ${{ needs.browser-tests.result }}
+          AUTHOR_RESULT: ${{ needs.author-tests.result }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$PLAN_RESULT" = success
+          case "$FULL" in
+            true) expected=success ;;
+            false) expected=skipped ;;
+            *) exit 1 ;;
+          esac
+          for result in "$CORE_RESULT" "$BROWSER_RESULT" "$AUTHOR_RESULT"; do
+            test "$result" = "$expected"
+          done
 
   editor-tools:
     uses: ./.github/workflows/extension.yml
