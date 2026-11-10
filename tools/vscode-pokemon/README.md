@@ -62,3 +62,9 @@ open buffers where available and reporting the originating file and line.
 For a playable local preview use Preview public chapter files at /author.html;
 it assembles the same sources/metadata with temporary memory progress. See
 docs/AUTHORING.md for opt-in Pokédex metadata, observations and information cards.
+
+Inline scan cards use `*pokedex species_id` and the `pkmn-pokedex` workspace
+snippet. Standalone diagnostics read a sibling `.pokedex.json` metadata file;
+public chapter diagnostics use public metadata. Save the story after metadata
+edits to refresh validation. Unknown species, missing passage scan links and
+ambiguous mappings are errors. See docs/AUTHORING.md for presentation semantics.

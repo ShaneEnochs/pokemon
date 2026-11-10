@@ -297,7 +297,7 @@
     "body": [
       "*pokemon ${1:starter_piplup} \"${2:Piplup}\""
     ],
-    "description": "Pok\u00e9mon party: pokemon"
+    "description": "Pokémon party: pokemon"
   },
   "add_pokemon": {
     "scope": "pokemon-story,plaintext",
@@ -305,7 +305,7 @@
     "body": [
       "*add_pokemon ${1:starter_piplup} ${2:starter_nickname}"
     ],
-    "description": "Pok\u00e9mon party: add_pokemon"
+    "description": "Pokémon party: add_pokemon"
   },
   "remove_pokemon": {
     "scope": "pokemon-story,plaintext",
@@ -313,7 +313,7 @@
     "body": [
       "*remove_pokemon ${1:starter_piplup}"
     ],
-    "description": "Pok\u00e9mon party: remove_pokemon"
+    "description": "Pokémon party: remove_pokemon"
   },
   "has_pokemon": {
     "scope": "pokemon-story,plaintext",
@@ -322,7 +322,7 @@
       "*show_if has_pokemon ${1:starter_piplup}",
       "${2:Your partner is with you.}"
     ],
-    "description": "Pok\u00e9mon party: has_pokemon"
+    "description": "Pokémon party: has_pokemon"
   },
   "lacks_pokemon": {
     "scope": "pokemon-story,plaintext",
@@ -331,6 +331,14 @@
       "*show_if lacks_pokemon ${1:starter_piplup}",
       "${2:Your partner is away.}"
     ],
-    "description": "Pok\u00e9mon party: lacks_pokemon"
+    "description": "Pokémon party: lacks_pokemon"
+  },
+  "pokedex": {
+    "prefix": "pkmn-pokedex",
+    "body": [
+      "*pokedex ${1:chikorita}"
+    ],
+    "description": "Display a passage-local recorded scan at this narrative boundary.",
+    "scope": "pokemon-story,plaintext"
   }
 }

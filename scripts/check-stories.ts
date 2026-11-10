@@ -1,7 +1,8 @@
+import { validatePokedex } from '../src/pokedex';
 import { resolve, isAbsolute } from 'node:path';
 import { publicStoryFiles, parseStorySources } from '../src/story-source';
 import type { StorySource } from '../src/story-source';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { analyzeStory } from '../src/preflight';
 import type { PreflightDiagnostic } from '../src/preflight';
 import { parseStory } from '../src/story';
@@ -33,7 +34,10 @@ for (const file of files) {
     continue;
   }
   let story: Story;
-  try { story = bundled ? parseStorySources(parts) : parseStory(source); } catch (error) {
+  try { story = bundled ? parseStorySources(parts) : parseStory(source);
+    const metadataPath = bundled ? 'content/aurelian-league.pokedex.json' : file.replace(/\.story$/, '.pokedex.json');
+    if (existsSync(metadataPath) || story.passages.some(p => p.pokedexMarkers?.length)) validatePokedex(story, existsSync(metadataPath) ? JSON.parse(readFileSync(metadataPath, 'utf8')) : []);
+  } catch (error) {
     if (error instanceof Error && 'sourcePath' in error && 'sourceMessage' in error) {
       console.log(isAbsolute(file) ? resolve(String(error.sourcePath)) : String(error.sourcePath));
       console.log('  ERROR PARSE_ERROR: ' + String(error.sourceMessage));

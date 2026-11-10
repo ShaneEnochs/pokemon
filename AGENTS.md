@@ -1,7 +1,18 @@
 # Working on The Aurelian League
 
-> **Narrative redesign notice (November 5, 2026):** [docs/STORY_BIBLE.md](docs/STORY_BIBLE.md) version 2.0 is the authoritative **future story canon**: a junior Rocket operative escapes a remote island after discovering transformed-human Pokémon on a cargo ship. The current playable chapters and most implementation constraints below describe the **legacy v1.2 contestant prototype** and remain operationally accurate until explicitly migrated. Do not use the old contestant premise or seven-starter selection as guidance when planning new narrative. Do not treat this documentation change as authorization to rewrite engine code or playable content.
+## Narrative planning policy
 
+Narrative planning is advisory. The author's latest explicit instructions take
+precedence over earlier notes. Characters, locations, mysteries, relationships,
+chapter plans and even playable details may be revised at the author's direction,
+without special justification. Review continuity implications rather than rejecting
+creative changes. Unwritten scenes and arcs are proposals, not automatic canon.
+This flexibility does not weaken engine, validation, scripting or save safeguards.
+
+**Implemented** describes current playable content, **Working** describes intentions
+and proposals, and **Archived** preserves earlier ideas for possible reuse. These
+labels describe status, not permission to change material. Relaxing these notes
+does not automatically restore an older storyline.
 
 This repository is the Pokémon interactive-fiction game The Aurelian League.
 Use the existing checkout; cloud tasks are already isolated. Do not create a Git
@@ -23,10 +34,10 @@ and a starting Cassius relationship of 13. Cassius remains in hidden People meta
 is no Chapter 2, starter selection, trainer name/pronoun input, Pokédex scan,
 battle or owned Pokémon yet. Old revision-9 ferry saves are incompatible.
 
-Use [docs/STORY_BIBLE.md](docs/STORY_BIBLE.md) and
-[docs/STORY_OUTLINE.md](docs/STORY_OUTLINE.md) for the mystery and future
-scenes. Do not restore the old contestant protagonist or seven-starter
-ferry premise without a separate request.
+Consult [docs/STORY_BIBLE.md](docs/STORY_BIBLE.md) (working notes v2.1) and
+[docs/STORY_OUTLINE.md](docs/STORY_OUTLINE.md) as advisory references. The product
+and chapter descriptions above document the current implementation, not binding
+requirements for future writing.
 
 ## Architecture and permanent rules
 

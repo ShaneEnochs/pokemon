@@ -21,6 +21,7 @@
     <KeyWord name="*journal" />
     <KeyWord name="*page_break" />
     <KeyWord name="*passage" />
+    <KeyWord name="*pokedex" />
     <KeyWord name="*pokemon" />
     <KeyWord name="*remove_item" />
     <KeyWord name="*remove_pokemon" />

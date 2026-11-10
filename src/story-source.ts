@@ -32,3 +32,5 @@ export function parseStorySources(parts: readonly StorySource[]) {
     throw error;
   }
 }
+
+export { validatePokedex } from './pokedex';

@@ -1,10 +1,25 @@
 # THE AURELIAN LEAGUE
-## Story Bible — Version 2.1
-**Revised: November 9, 2026 | Status: Narrative redesign, established canon and working outline assumptions**
+## Working Story Notes — Version 2.1
+**Status: Living narrative notes; working direction and archived ideas**
 
-> **Authority and implementation:** This document supersedes the November 4, 2026 version 1.2 story bible. It is the source of truth for new narrative planning. The published game now includes the redesigned Chapter 1, *A Simple Assignment*, ending with the Chikorita's capture. The cargo-ship mystery and all later chapters are not yet playable. Some older planning notes elsewhere in the repository may still concern the superseded contestant prototype.
->
-> **Labels:** **Established** means agreed story direction; **Open** means an undecided detail or a suggested approach. This document deliberately avoids inventing answers to open questions. Detailed cast canon and current personal histories are in [CHARACTERS.md](CHARACTERS.md).
+Narrative planning is advisory. The author's latest explicit instructions take
+precedence over earlier notes. Characters, locations, mysteries, relationships,
+chapter plans and even playable details may be revised at the author's direction,
+without special justification. Review continuity implications rather than rejecting
+creative changes. Unwritten scenes and arcs are proposals, not automatic canon.
+This flexibility does not weaken engine, validation, scripting or save safeguards.
+
+**Implemented** describes current playable content, **Working** describes intentions
+and proposals, and **Archived** preserves earlier ideas for possible reuse. These
+labels describe status, not permission to change material. Relaxing these notes
+does not automatically restore an older storyline.
+
+The playable Chapter 1, *A Simple Assignment*, currently ends with Chikorita's
+capture. The cargo-ship mystery and later chapters are working proposals. Earlier
+contestant material is archived. Existing **Working** and **Open** labels in
+older notes both describe Working material unless explicitly identified as
+Implemented; neither imposes a creative commitment. See [CHARACTERS.md](CHARACTERS.md)
+for working cast histories.
 
 ## 1. Project identity and premise
 
@@ -14,7 +29,7 @@
 **Setting:** Aurelia, a remote, Roman-inspired island region of the Pokémon world  
 **Protagonist:** A customizable adult, junior League field warden, not a League contestant. They believe the League is their employer and do not know of its Team Rocket connection at the outset
 
-**Established premise:** Team Rocket controls a small Pokémon League in Aurelia. Publicly it offers Pokémon training and competition to communities that have had little access to an established League. Privately, the League is a front for laundering money, stealing and transporting Pokémon, and supporting illicit research. People have been disappearing across the island. Rocket has learned to transform humans into Pokémon through research based on an unusual Ditto.
+**Working premise:** Team Rocket controls a small Pokémon League in Aurelia. Publicly it offers Pokémon training and competition to communities that have had little access to an established League. Privately, the League is a front for laundering money, stealing and transporting Pokémon, and supporting illicit research. People have been disappearing across the island. Rocket has learned to transform humans into Pokémon through research based on an unusual Ditto.
 
 The protagonist believes they work directly for the League, performing low-level field-welfare duties such as recovering and relocating Pokémon. They do not know that Team Rocket controls the League; discovering the League's criminal activity aboard a ship comes well before learning who is behind it. An apparently ordinary capture-and-delivery assignment leads them aboard a cargo ship carrying imprisoned experimental subjects. They rescue one Pokémon, accidentally become a fugitive with direct knowledge of the trafficking operation, and eventually learn that their companion was once human.
 
@@ -29,7 +44,7 @@ The story is **not** organized around the protagonist earning eight Laurels, ran
 - The story should feel like a Pokémon adventure first, with opportunities to encounter, care for, travel with, and battle alongside Pokémon.
 - The opening is comedic and grounded. The cargo-ship discovery changes the tone without eliminating warmth, humor, or everyday life from later chapters.
 - The player's choices should shape the protagonist's responses, relationships, trust, discoveries, companion interactions, and significant later consequences.
-- The protagonist may speak and think directly in the narration; they are not a silent blank slate. Choices must still accurately signal the attitude or action the player selects.
+- The protagonist may speak and think directly in the narration; they are not a silent blank slate. Choices should still accurately signal the attitude or action the player selects.
 - Use natural, connected paragraphs and substantive conversations. Favor a few worthwhile choices over constant shallow menus. An approximate default is two or three choices and three to five paragraphs between Continue breaks where the pacing permits.
 - No forced minigame grind, point economy, weekly timetable, or full turn-by-turn battle simulation is needed.
 - Mystery should arise from observable clues and character behavior, not withholding facts the protagonist clearly knows.
@@ -37,7 +52,7 @@ The story is **not** organized around the protagonist earning eight Laurels, ran
 
 ## 3. Aurelia: a remote island
 
-**Established:** Aurelia is an island region with Roman and Mediterranean influences. It is sufficiently populated to sustain towns, rural communities, commerce, harbors, travel routes, and a small Pokémon League, yet sufficiently remote for an outside criminal organization to accumulate influence.
+**Working:** Aurelia is an island region with Roman and Mediterranean influences. It is sufficiently populated to sustain towns, rural communities, commerce, harbors, travel routes, and a small Pokémon League, yet sufficiently remote for an outside criminal organization to accumulate influence.
 
 The look and culture may draw on stone harbors, colonnades, forums, aqueducts, old roads, orchards, hills, coastal villages, and Roman-inspired civic traditions. Modern Pokémon-world technology, transportation, and everyday infrastructure coexist with these older influences.
 
@@ -58,7 +73,7 @@ The independent research institute is expected to be beyond Rocket's local contr
 
 ## 4. The public League and Rocket's operation
 
-**Established:**
+**Working:**
 
 - The Aurelian League is small and remote, intended for trainers who otherwise have limited access to official competition. Its inaugural competitive season is scheduled to begin in **August**, approximately four months after the **April 4** opening. League facilities are still being built and the islands are already experiencing increased tourism and investment. The exact season length and gym format remain open.
 - The protagonist works directly for the League in a low-level Pokémon welfare/field warden role. They and other ordinary employees may genuinely believe their relocation assignments are legitimate; they are not knowingly Team Rocket personnel.
@@ -74,7 +89,7 @@ The League is a setting and institutional antagonist, not a progression system f
 
 ## 5. The experimental Ditto and human transformation
 
-**Established speculative-fiction rules:**
+**Working speculative-fiction rules:**
 
 1. Team Rocket's breakthrough began with an unusual Ditto whose ability, **Polymorph**, is effectively **reverse Transform**. Instead of transforming itself, this Ditto can transform **someone else** into a Pokémon. Polymorph is a fictional, story-specific power of this particular Ditto, not a claim about the ordinary Transform move. The Ditto is a captive being, not the story's villain.
 2. Rocket has found a way to transform a human's body into the body of a Pokémon, including the brain. The process is not a cosmetic disguise.
@@ -86,9 +101,9 @@ The League is a setting and institutional antagonist, not a progression system f
 8. The protagonist's rescued starter ultimately **cannot be returned to human form**. The precise moment this becomes known is an outlining decision, not a player-timed failure condition.
 9. A permanently transformed person retains a real present-day personality, capacity for attachment, and ability to live meaningfully as a Pokémon. That does not erase the tragedy of the human life taken from them.
 
-**Established criminal motive:** Rocket accepts black-market orders for **specific Pokémon species**. It uses Polymorph to transform abducted people into ordered species with essentially perfect stats, then sells or ships those Pokémon through the criminal operation concealed by the League. The experiments and repeated disappearances are driven by this commercial demand.
+**Working criminal motive:** Rocket accepts black-market orders for **specific Pokémon species**. It uses Polymorph to transform abducted people into ordered species with essentially perfect stats, then sells or ships those Pokémon through the criminal operation concealed by the League. The experiments and repeated disappearances are driven by this commercial demand.
 
-**Open scientific/plot mechanisms:** What makes the Ditto unique beyond Polymorph; whether it must personally perform every transformation and reversal; how long the human/Pokémon DNA mixture persists; exactly what causes the irreversible stage; and how the institute establishes Darrow's original identity once his transformation is permanent. **A mixed-DNA test on an early-stage victim can demonstrate that human transformation exists, but must not be treated as proof of Darrow's personal identity if his mixed DNA has already disappeared.** The institute may need separate corroboration from records, earlier samples, or other evidence; no mechanism is approved yet. Establish these privately before detailed research revelations. Do not dress speculative plot mechanics up as real biological facts.
+**Open scientific/plot mechanisms:** What makes the Ditto unique beyond Polymorph; whether it must personally perform every transformation and reversal; how long the human/Pokémon DNA mixture persists; exactly what causes the irreversible stage; and how the institute establishes Darrow's original identity once his transformation is permanent. **A mixed-DNA test on an early-stage victim can demonstrate that human transformation exists, but should not be treated as proof of Darrow's personal identity if his mixed DNA has already disappeared.** The institute may need separate corroboration from records, earlier samples, or other evidence; no mechanism is approved yet. Establish these privately before detailed research revelations. Do not dress speculative plot mechanics up as real biological facts.
 
 ## 6. The protagonist
 
@@ -100,7 +115,7 @@ The protagonist is not a conventional new League entrant. Their development into
 
 The revelation aboard the ship is the decisive break from the League as the protagonist understands it. The identity of Team Rocket as the force behind the scheme is a **later discovery**, not an opening exposition beat. Their first impulse is to release the imprisoned Pokémon; escaping with only one is the result of an interruption, not a decision that the others are expendable.
 
-The people operating the trafficking scheme pursue them because they know too much, have taken an experimental subject, and could enable outsiders to prove the operation exists. The pursuers' Team Rocket connection is initially concealed from the protagonist. The protagonist's own involvement may complicate seeking help. We must establish convincing, noncontrived reasons for the particular danger and travel route rather than declaring all authorities corrupt by default.
+The people operating the trafficking scheme pursue them because they know too much, have taken an experimental subject, and could enable outsiders to prove the operation exists. The pursuers' Team Rocket connection is initially concealed from the protagonist. The protagonist's own involvement may complicate seeking help. We can develop convincing, noncontrived reasons for the particular danger and travel route rather than declaring all authorities corrupt by default.
 
 ## 7. Opening sequence: first day, first capture, and the cargo ship
 
@@ -138,7 +153,7 @@ The escape and its immediate consequences still need scene-level design.
 
 ## 8. The three rescue partners
 
-**Only these three are approved opening partner choices for the redesigned story:**
+**Current proposed opening partner choices:**
 
 - **Charmander**
 - **Chikorita**
@@ -146,11 +161,11 @@ The escape and its immediate consequences still need scene-level design.
 
 Every choice is narratively valid and equally important. The starter selection does **not** involve the previous seven-Pokémon mutual-selection field, and no League official awards a starter.
 
-**Established:** The rescued starter has **one fixed former human identity regardless of which species the player selects**. The chosen Pokémon may be Charmander, Chikorita, or Piplup, but its former name, loved ones, history, and fundamental personality are the same in every playthrough. Species changes the Pokémon's expression and capabilities, not who the missing person was. The unchosen starter candidates are also experimental victims, but are not additional versions of the rescued individual's identity within a given playthrough. The chosen companion has better-than-typical intelligence and potential for its species, retains a recognizable disposition, has impaired or fading human memory, and ultimately cannot be returned to human form. Early behavior can be interpreted as ordinary individual Pokémon temperament, with a second meaning after the truth is revealed.
+**Working:** The rescued starter has **one fixed former human identity regardless of which species the player selects**. The chosen Pokémon may be Charmander, Chikorita, or Piplup, but its former name, loved ones, history, and fundamental personality are the same in every playthrough. Species changes the Pokémon's expression and capabilities, not who the missing person was. The unchosen starter candidates are also experimental victims, but are not additional versions of the rescued individual's identity within a given playthrough. The chosen companion has better-than-typical intelligence and potential for its species, retains a recognizable disposition, has impaired or fading human memory, and ultimately cannot be returned to human form. Early behavior can be interpreted as ordinary individual Pokémon temperament, with a second meaning after the truth is revealed.
 
-**Established foreshadowing:** In the early Starting Over sequence (working Scene 11), the **starter the player rescued** becomes unexpectedly affectionate with a person they meet. The protagonist wonders aloud whether they know each other. The person replies that they have never seen a Pokémon of that species before. When the protagonist prepares to leave, **the starter is distinctly reluctant to leave that person or place**. It lingers, resists moving on, and needs patient reassurance, but **eventually agrees to accompany the protagonist voluntarily**. The scene should convey attachment and loss without explaining either. Later it becomes clear that **the chosen starter is the person reported missing from that person's life**, transformed and unable to remember or communicate its former identity. This is not a different Pokémon belonging to that person.
+**Working foreshadowing:** In the early Starting Over sequence (working Scene 11), the **starter the player rescued** becomes unexpectedly affectionate with a person they meet. The protagonist wonders aloud whether they know each other. The person replies that they have never seen a Pokémon of that species before. When the protagonist prepares to leave, **the starter is distinctly reluctant to leave that person or place**. It lingers, resists moving on, and needs patient reassurance, but **eventually agrees to accompany the protagonist voluntarily**. The scene should convey attachment and loss without explaining either. Later it becomes clear that **the chosen starter is the person reported missing from that person's life**, transformed and unable to remember or communicate its former identity. This is not a different Pokémon belonging to that person.
 
-**Established former identity:** Whichever species the player chooses, the rescued starter was **Darrow, age 32**, a hardheaded but kindhearted man who supports himself through **odd jobs** in and around **Marletto**. He was the **older brother of a widowed woman** and moved in with her after her husband died to help care for her children. Darrow has a very close relationship with his sister and the children. When the family's **Herdier** disappeared, Darrow searched for it and wandered too close to a restricted **League area**. **Team Rocket operatives surrounded and abducted him**, then took him to a facility and used the unusual Ditto's Polymorph ability to transform him into a Pokémon. **Darrow's escape is species-dependent:** if transformed into **Chikorita**, he uses **Vine Whip** to pick or manipulate his enclosure's lock and flees the facility; Cassius and the protagonist unknowingly recapture him during the opening field assignment and deliver him to the ship. If he was transformed into **Charmander or Piplup**, **he never escapes the facility** and is transferred to the cargo ship as a prisoner. Thus Darrow is always available in the hold as the selected starter, but only the Chikorita route makes him the opening Pokémon that the protagonist catches. **Herdier returned home alone**, while Darrow never returned. The protagonist, his sister, and the companion do not know this in Act II. This is one fixed history for Charmander, Chikorita, and Piplup, not three different men.
+**Working former identity:** Whichever species the player chooses, the rescued starter was **Darrow, age 32**, a hardheaded but kindhearted man who supports himself through **odd jobs** in and around **Marletto**. He was the **older brother of a widowed woman** and moved in with her after her husband died to help care for her children. Darrow has a very close relationship with his sister and the children. When the family's **Herdier** disappeared, Darrow searched for it and wandered too close to a restricted **League area**. **Team Rocket operatives surrounded and abducted him**, then took him to a facility and used the unusual Ditto's Polymorph ability to transform him into a Pokémon. **Darrow's escape is species-dependent:** if transformed into **Chikorita**, he uses **Vine Whip** to pick or manipulate his enclosure's lock and flees the facility; Cassius and the protagonist unknowingly recapture him during the opening field assignment and deliver him to the ship. If he was transformed into **Charmander or Piplup**, **he never escapes the facility** and is transferred to the cargo ship as a prisoner. Thus Darrow is always available in the hold as the selected starter, but only the Chikorita route makes him the opening Pokémon that the protagonist catches. **Herdier returned home alone**, while Darrow never returned. The protagonist, his sister, and the companion do not know this in Act II. This is one fixed history for Charmander, Chikorita, and Piplup, not three different men.
 
 **Scene 11 foreshadowing:** The sister and children are familiar to the transformed man. The starter becomes inexplicably affectionate toward them in every playthrough, despite the sister never having seen this Pokémon species before. **The family's Herdier is back home.** It ordinarily dislikes or avoids unfamiliar Pokémon, but on meeting the starter it becomes **uncharacteristically delighted and affectionate**, as though it recognizes someone familiar. Nobody present can explain the reaction. When the visit ends, the starter is reluctant to leave the woman, children, and Herdier, then willingly follows the protagonist after reassurance. These responses are emotional clues, not a substitute for the institute's later independent proof of identity. Do not explain the biological basis of Herdier's recognition prematurely.
 
@@ -158,13 +173,13 @@ Every choice is narratively valid and equally important. The starter selection d
 
 **Open:** The sister's name and age, how long ago her husband died, the children's number and ages, when Herdier found its way home, the birthmark's exact shape and placement, and the independent evidence that corroborates Darrow's identity. The two unchosen prisoners' identities remain separate and unspecified. Do not assume the widowed sister is the gruff older farmer; they are distinct characters unless explicitly combined later.
 
-The rescued Pokémon becomes a major character, not a disposable battle tool or a plot coupon. Trust, consent, and the companion's own responses should matter. Once the truth is known, the story must address what their partnership means; their former humanity does not entitle the protagonist or anyone else to ownership of them.
+The rescued Pokémon becomes a major character, not a disposable battle tool or a plot coupon. Trust, consent, and the companion's own responses should matter. Once the truth is known, the story could explore what their partnership means; their former humanity does not entitle the protagonist or anyone else to ownership of them.
 
 The remaining two rescue candidates need not vanish from the plot. Their eventual fates are **open** and can supply later consequences or investigative leads.
 
 ## 9. Disappearances, the research institute, and pursuit
 
-**Established:**
+**Working:**
 
 - People have been reported missing across Aurelia. Their disappearances connect to Rocket's transformation operation.
 - An **independent Pokémon research/conservation group** has been investigating unusual disappearances, experiments, or shipments but has not been able to obtain a living transformed subject as proof.
@@ -183,7 +198,7 @@ The institute may be fundamentally benevolent while having its own priorities. I
 
 The early Lezano circle now includes **Octavia** (widowed supervisor, native Aurelian, owner of Marcus's Mismagius, knowingly tolerates Pokémon mistreatment for the League's economic benefit and ultimately opposes the protagonist), **Julia** (junior warden and Octavia's protégé, unaware of the conspiracy), and **Selene** (Julia's charismatic, ambitious wife, an incoming Gym Leader partnered with Roserade). Julia's and Cassius's eventual cooperation or opposition depends on relationships, knowledge, and circumstances, not automatic villainy. See [CHARACTERS.md](CHARACTERS.md) for these established histories, personal stakes, and open questions.
 
-Keep the central recurring cast manageable; not every early coworker must accompany the protagonist throughout the adventure.
+Keep the central recurring cast manageable; not every early coworker needs to accompany the protagonist throughout the adventure.
 
 **Further roles and functions to develop:**
 
@@ -218,8 +233,8 @@ Do not turn these headings into rigid mandatory chapters. Allow room for quiet t
 
 - **Narrative spine with responsive branches.** Major turning points can reconverge while previously chosen attitudes, allies, companion species, discoveries, promises, and mistakes change later scenes and endings.
 - **Meaningful choices.** Offer social and ethical agency and selective route/encounter variation. Avoid multiple options with indistinguishable consequences, arbitrary gotchas, or hidden requirements that make a long playthrough unwinnable.
-- **Relationships.** A hidden 1–20 relationship scale with a neutral starting point near 10 is an approved *design direction*, but particular narrative events and broken promises may also require explicit flags. Numbers should not be displayed to the player.
-- **Pokémon battles.** Battles can occur when dramatically appropriate and should be written as narrative encounters, not as a complete HP/accuracy/damage simulation. Earlier discussion favored selecting one Pokémon for an individual battle and simple level progression per use; specifics must be confirmed when combat is actually implemented.
+- **Relationships.** A hidden 1–20 relationship scale with a neutral starting point near 10 is a working *design proposal*, but particular narrative events and broken promises may also require explicit flags. Numbers should not be displayed to the player.
+- **Pokémon battles.** Battles can occur when dramatically appropriate and should be written as narrative encounters, not as a complete HP/accuracy/damage simulation. Earlier discussion favored selecting one Pokémon for an individual battle and simple level progression per use; specifics could be confirmed when combat is actually implemented.
 - **Catching and equipment.** Conventional Poké Balls are preferred over the previous League-bracelet-only system. Capture mechanics, available types of Balls, and inventory effects are not yet fully specified.
 - **No currency ledger.** The protagonist is practically penniless after escaping, but the game does **not** track credits or require repeated payments. Odd jobs exchange work for shelter, meals, transport assistance, basic Poké Balls, and occasional notable items. Use inventory only for items whose possession meaningfully affects scenes.
 - **Character interface.** Visible Stats and Inventory are probably sufficient alongside story and Pokémon/party information. Journal and Skills can remain underlying engine capabilities or future optional modules without appearing in this game's main UI.
@@ -227,11 +242,11 @@ Do not turn these headings into rigid mandatory chapters. Allow room for quiet t
 - **Future visuals.** Pokémon sprites are deferred; Emerald-era pixel art is a visual reference preference, not a current production requirement. Existing Pokémon imagery has intellectual-property implications that must be considered before public distribution.
 - **Future modular engine.** A later Codex project may separate generic IF systems from Pokémon-specific features and story content. Do not let that speculative architecture dictate the current writing.
 
-These statements are *narrative requirements or future technical intentions*. They do not assert that the present engine implements new mechanics.
+These statements are *working narrative proposals or possible technical directions*. Current technical guarantees are documented in ENGINE.md and SCRIPTING.md. They do not assert that the present engine implements new mechanics.
 
 ## 13. Superseded v1.2 concepts
 
-The following are **no longer canon for the redesigned story**:
+The following are **archived concepts from an earlier direction**:
 
 - The player as a first-time League contestant on a ferry to Lezano.
 - A field of seven mutually selecting starter Pokémon after League orientation.
@@ -258,7 +273,7 @@ The old playable chapters and their associated characters remain in Git history 
 
 ## 15. Working method
 
-Keep this bible about **facts and rules of the story world**. Maintain a separate **plot outline** for the sequence of major events and an optional **scene outline** for each chapter. Do not duplicate fixed story facts across all three documents.
+Use these working notes for provisional **worldbuilding and story ideas**. Maintain a separate **plot outline** for the sequence of major events and an optional **scene outline** for each chapter. Do not duplicate fixed story facts across all three documents.
 
 Outline the critical path from beginning to end first. Then add meaningful alternative approaches, relationship consequences, companion-specific details, and optional scenes. Draft prose only after the main structural logic and mystery reveal sequence work.
 

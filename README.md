@@ -1,5 +1,18 @@
 # The Aurelian League
 
+Narrative planning is advisory. The author's latest explicit instructions take
+precedence over earlier notes. Characters, locations, mysteries, relationships,
+chapter plans and even playable details may be revised at the author's direction,
+without special justification. Review continuity implications rather than rejecting
+creative changes. Unwritten scenes and arcs are proposals, not automatic canon.
+This flexibility does not weaken engine, validation, scripting or save safeguards.
+
+**Implemented** describes current playable content, **Working** describes intentions
+and proposals, and **Archived** preserves earlier ideas for possible reuse. These
+labels describe status, not permission to change material. Relaxing these notes
+does not automatically restore an older storyline.
+
+
 ## Current interface
 
 The primary views are **Story | Inventory | Pokédex**, in that order. Inventory

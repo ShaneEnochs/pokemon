@@ -1,8 +1,21 @@
 # The Aurelian League: Character Bible
 
-**Updated: November 9, 2026 | Status: Established character canon, with explicitly open details**
+Narrative planning is advisory. The author's latest explicit instructions take
+precedence over earlier notes. Characters, locations, mysteries, relationships,
+chapter plans and even playable details may be revised at the author's direction,
+without special justification. Review continuity implications rather than rejecting
+creative changes. Unwritten scenes and arcs are proposals, not automatic canon.
+This flexibility does not weaken engine, validation, scripting or save safeguards.
 
-This is the working reference for recurring characters and their personal histories. Read it alongside [STORY_BIBLE.md](STORY_BIBLE.md) for world rules and [STORY_OUTLINE.md](STORY_OUTLINE.md) for the provisional sequence of events. **Established** details below are agreed story decisions. **Open** details are not yet canon. Potential dialogue, scenes, and arcs are not automatic commitments.
+**Implemented** describes current playable content, **Working** describes intentions
+and proposals, and **Archived** preserves earlier ideas for possible reuse. These
+labels describe status, not permission to change material. Relaxing these notes
+does not automatically restore an older storyline.
+
+
+**Updated: November 9, 2026 | Status: Working character notes, with explicitly open details**
+
+This is the working reference for recurring characters and their personal histories. Read it alongside [STORY_BIBLE.md](STORY_BIBLE.md) for world rules and [STORY_OUTLINE.md](STORY_OUTLINE.md) for the provisional sequence of events. **Working** details below reflect current intentions. **Open** details are further proposals. Potential dialogue, scenes, and arcs are not automatic commitments.
 
 ## Current timeline and opening context
 
@@ -35,7 +48,7 @@ Approximately fifteen to twenty years before the opening (exact year undecided),
 
 When he tried to put a lead around its neck to bring it somewhere safe for treatment, Houndoom panicked. The restraint prompted a defensive attack. **Mismagius, Marcus's Pokémon, tried to protect him**, but it was overwhelmed by Houndoom's Dark-type attacks, against which its Ghost typing is vulnerable. Marcus was fatally injured; Mismagius survived.
 
-The Houndoom was frightened and reacting to previous mistreatment. The story must **not** portray it as intrinsically evil. Octavia understands intellectually that Marcus was trying to help and that Houndoom's reaction was not necessarily malicious. She has never been able to forgive the loss. Her grief hardened into a broader emotional distance from unfamiliar Pokémon. She can still perform welfare work competently and feel compassion, but she places their suffering below what she perceives as human needs and the islands' prosperity.
+The Houndoom was frightened and reacting to previous mistreatment. The current proposal avoids portraying it as intrinsically evil. Octavia understands intellectually that Marcus was trying to help and that Houndoom's reaction was not necessarily malicious. She has never been able to forgive the loss. Her grief hardened into a broader emotional distance from unfamiliar Pokémon. She can still perform welfare work competently and feel compassion, but she places their suffering below what she perceives as human needs and the islands' prosperity.
 
 Octavia loves Mismagius because it belonged to Marcus and tried to save him. The bond is genuine. Mismagius should have its own personality rather than function solely as a warning about Octavia.
 
@@ -70,7 +83,7 @@ Octavia has helped the couple since their arrival and is a trusted mentor, not j
 
 Julia is earnest about Pokémon welfare, interested in their behavior, enthusiastic about learning, and sensitive to being treated as inexperienced. She cares about proper handling and can grow frustrated with Cassius's improvised methods. She needs a professional identity of her own without resenting or ceasing to love her wife.
 
-Her potential opposition to the protagonist should **not** turn her into a malicious conspirator. Julia can misunderstand events, trust Octavia's account, fear damage to Selene's future, and struggle between competing loyalties and her own ethics. She must be capable of changing her mind when faced with convincing evidence. Relationships and choices can alter the route to that decision; a numerical relationship score alone should not decide moral truth.
+Her potential opposition to the protagonist should **not** turn her into a malicious conspirator. Julia can misunderstand events, trust Octavia's account, fear damage to Selene's future, and struggle between competing loyalties and her own ethics. She could be capable of changing her mind when faced with convincing evidence. Relationships and choices can alter the route to that decision; a numerical relationship score alone should not decide moral truth.
 
 **Voice and habits:** More precise and earnest than Cassius; quick to explain Pokémon behavior and sometimes quick to defend herself when criticized. In the drafted opening she has dark hair tied back, practical clothing, and impatience with the mishandling of a frightened Sentret. These presentation details may be refined.
 
@@ -115,7 +128,7 @@ Selene initially has much to lose from public accusations against the League. Sh
 
 ### Established personality and professional ability
 
-Cassius is genuinely **very good at fieldwork**. He has a natural calming, disarming presence around frightened or aggressive wild Pokémon, knows the local countryside and residents, and can recognize when an animal needs more space. His manner is talkative, warm, goofy, and sometimes overconfident. Oddly, he has particular trouble catching Pokémon that seem harmless or straightforward, such as the opening Sentret and Chikorita. These comedic failures **must not erase his demonstrated competence**.
+Cassius is genuinely **very good at fieldwork**. He has a natural calming, disarming presence around frightened or aggressive wild Pokémon, knows the local countryside and residents, and can recognize when an animal needs more space. His manner is talkative, warm, goofy, and sometimes overconfident. Oddly, he has particular trouble catching Pokémon that seem harmless or straightforward, such as the opening Sentret and Chikorita. These comedic failures **should not erase his demonstrated competence**.
 
 He likes coaching junior employees, tells stories about his family, and is often more comfortable offering an explanation than admitting that a specific tactic isn't working.
 
@@ -154,7 +167,7 @@ After the protagonist flees, Cassius has legitimate reasons to fear blame and jo
 | **Selene** | No established secret knowledge | Career success, public reputation, and practical compromises may conflict with Julia's convictions |
 | **Cassius** | Suspects problems but avoids investigating; would act on confirmed abuse | Family medical costs and job security versus his conscience |
 
-The three wardens must have distinct competencies and real lives outside the protagonist's presence. **Julia and Cassius being possible opponents does not mean they secretly work for Team Rocket.** Their choices should be written as understandable consequences of limited knowledge, relationships, and stakes.
+The three wardens could have distinct competencies and real lives outside the protagonist's presence. **Julia and Cassius being possible opponents does not mean they secretly work for Team Rocket.** Their choices should be written as understandable consequences of limited knowledge, relationships, and stakes.
 
 ## Future drafting and implementation notes
 
@@ -162,4 +175,4 @@ The three wardens must have distinct competencies and real lives outside the pro
 - Preserve Octavia's **unmistakably genuine kindness** in early scenes; don't seed obvious evil hints through dialogue or through Mismagius.
 - Introduce Selene and Roserade naturally, and allow Julia's veterinary ambition and feelings about being left behind to develop over multiple conversations.
 - Let Cassius demonstrate competence alongside his humor. His relationship starts at **13**, but later moral commitments should not be determined by score alone.
-- Keep the distinction between **authored story** and **planned story**: this file records approved character canon, but does not authorize changes to Chapter 1, the story source manifest, save revision, or game engine.
+- Keep the distinction between **authored story** and **planned story**: this file records working character proposals, but does not authorize changes to Chapter 1, the story source manifest, save revision, or game engine.

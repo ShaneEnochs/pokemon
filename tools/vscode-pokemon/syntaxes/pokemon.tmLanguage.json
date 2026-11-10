@@ -25,7 +25,7 @@
       "end": "$"
     },
     {
-      "begin": "^\\s*(\\*)(comment|if|elseif|else|page_break|temp|var|stat|skill|item|chapter|passage|title|hide_title|choice|continue|input_text|checkpoint|journal|set|add|pokemon|add_pokemon|remove_pokemon|grant_skill|revoke_skill|add_item|remove_item|death|show_if)(?=\\s|$)",
+      "begin": "^\\s*(\\*)(comment|if|elseif|else|pokedex|page_break|temp|var|stat|skill|item|chapter|passage|title|hide_title|choice|continue|input_text|checkpoint|journal|set|add|pokemon|add_pokemon|remove_pokemon|grant_skill|revoke_skill|add_item|remove_item|death|show_if)(?=\\s|$)",
       "beginCaptures": {
         "1": {
           "name": "punctuation.definition.directive.pokemon"

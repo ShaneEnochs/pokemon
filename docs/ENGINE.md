@@ -944,3 +944,16 @@ The initial Chikorita encounter then advances it to revision 12.
 The story ID, storage key, GameState schema, save formats, and checkpoint semantics
 remain unchanged. Existing revision-8 saves are rejected rather than migrated
 because their recorded chapter labels are incompatible.
+
+## Anchored inline Pokédex cards
+
+Optional frozen `Passage.pokedexMarkers` store a species ID, paragraph anchor,
+source line, page and ordinary narrative condition. Paragraph records stay intact.
+The reader merges eligible cards at their authored anchors, using the existing
+`passageLookups` evidence and `lookupCard` renderer. The marker species suppresses
+its legacy appended card across all pages/conditions. Context page visibility also
+accounts for conditional marker pages. Parsing checks placement/IDs/duplicates;
+`validatePokedex` checks metadata and passage scan linkage/ambiguity. No marker
+runs effects or becomes persisted gameplay state. Existing public sources and saves
+are unchanged. Narrative documents are advisory; technical validation and atomic
+state/save guarantees remain strict.

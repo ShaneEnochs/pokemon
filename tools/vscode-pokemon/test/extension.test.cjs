@@ -9,7 +9,7 @@ test('language, snippets and tasks retain their registration', () => {
   assert.deepEqual(manifest.contributes.languages[0].extensions, ['.story']);
   assert.equal(manifest.contributes.languages[0].id, 'pokemon-story');
   const snippets = JSON.parse(fs.readFileSync(path.join(__dirname,'../../../.vscode/pokemon.code-snippets'),'utf8'));
-  assert.equal(Object.keys(snippets).length, 39);
+  assert.equal(Object.keys(snippets).length, 40);
   for (const entry of Object.values(snippets)) { assert.equal(entry.scope, 'pokemon-story,plaintext'); assert.ok(entry.prefix.startsWith('pkmn-')); }
   assert.equal(require('../../../.vscode/tasks.json').tasks.length, 3);
 });
@@ -83,4 +83,12 @@ test('public chapter diagnostics assemble globals and the sole Chapter 1 source'
     const savedOther={uri:{fsPath:files[0]},getText:()=>'*var name "Ari"\n*var other "Sam"'};
     assert.equal(chapterProblem(files[1],unsaved,[savedOther]).error,undefined);
   } finally {fs.rmSync(root,{recursive:true,force:true});}
+});
+
+test('inline marker diagnostics use selected metadata and source lines',()=>{
+ const source='*passage start\n*title Scan\n*journal scanned_one "Scan."\nBefore.\n\n*pokedex chikorita\n\nAfter.';
+ const metadata=[{id:'chikorita',name:'Chikorita',description:'Grass.',discoveryEvents:['scanned_one']}];
+ assert.equal(problem(source,8,metadata),undefined);
+ const error=problem(source,8,[]);assert.equal(error.line,5);assert.match(error.message,/unknown species/);
+ assert.match(problem(source.replace('*pokedex chikorita','*pokedex'),8,metadata).message,/Pokédex species/);
 });

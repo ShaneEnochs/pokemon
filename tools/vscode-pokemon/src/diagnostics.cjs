@@ -1,8 +1,8 @@
-const { parseStory, parseStorySources, publicStoryFiles } = require('../dist/parser.cjs');
+const { parseStory, parseStorySources, publicStoryFiles, validatePokedex } = require('../dist/parser.cjs');
 const fs = require('node:fs');
 const path = require('node:path');
-function problem(text, lineCount) {
-  try { parseStory(text); return undefined; }
+function problem(text, lineCount, metadata) {
+  try { const story = parseStory(text); if (metadata !== undefined || story.passages.some(p => p.pokedexMarkers?.length)) validatePokedex(story, metadata ?? []); return undefined; }
   catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     const match = /^Line ([1-9]\d*)(?:, passage "[^"]+")?: /.exec(message);
@@ -21,7 +21,9 @@ function chapterProblem(filename, text, documents = []) {
   try {
     parts = files.map(file => ({path: file, text: file === filename ? text
       : documents.find(document => document.uri.fsPath === file)?.getText() ?? fs.readFileSync(file, 'utf8')}));
-    parseStorySources(parts);
+    const story = parseStorySources(parts);
+    const metadataPath = path.resolve(root, "content/aurelian-league.pokedex.json");
+    if (fs.existsSync(metadataPath)) validatePokedex(story, JSON.parse(fs.readFileSync(metadataPath, "utf8")));
     return { files };
   } catch (error) {
     const target = error.sourcePath ?? filename;
@@ -48,7 +50,11 @@ function register(api, context) {
       diagnostic.source = 'Aurelian League parser';
       collection.set(api.Uri.file(error.path), [diagnostic]); return;
     }
-    const error = problem(document.getText(), document.lineCount);
+    const metadataPath = document.uri.fsPath?.replace(/\.story$/, '.pokedex.json');
+    let metadata;
+    try { if (metadataPath && fs.existsSync(metadataPath)) metadata = JSON.parse(fs.readFileSync(metadataPath, 'utf8')); }
+    catch (error) { output.appendLine(String(error)); return; }
+    const error = problem(document.getText(), document.lineCount, metadata);
     if (!error) { collection.delete(document.uri); return; }
     if (error.line === undefined) {
       collection.delete(document.uri); output.appendLine(`${document.uri.toString()}: ${error.message}`); return;
